@@ -14,19 +14,34 @@
 
 @implementation ViewController
 
++(UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize) newSize{
+    UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+    [image drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    NSArray *imageNames = @[@"win_1.png", @"win_2.png", @"win_3.png", @"win_4.png",
+    NSArray *imageNames = @[@"DSC00731.jpg", @"DSC00732.jpg", @"DSC00733.jpg", @"DSC00736.jpg",
                              @"win_5.png", @"win_6.png", @"win_7.png", @"win_8.png",
                              @"win_9.png", @"win_10.png", @"win_11.png", @"win_12.png",
                              @"win_13.png", @"win_14.png", @"win_15.png", @"win_16.png"];
     
     NSMutableArray *images = [[NSMutableArray alloc] init];
     for(size_t i=0; i<imageNames.count; ++i){
-        [images addObject:[UIImage imageNamed:[imageNames objectAtIndex: i]]];
+        UIImage *originalImg = [UIImage imageNamed:[imageNames objectAtIndex:i]];
+        CGSize newSize = CGSizeMake(86, 193);
+        UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
+        [originalImg drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+        UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        [images addObject:newImage];
+        
     }
     
     // Normal animation
