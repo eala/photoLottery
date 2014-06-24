@@ -22,22 +22,33 @@
     return newImage;
 }
 
+-(void)stopButtonMethod
+{
+    //NSLog(@"Stop It!");
+    UIImageView *view = (UIImageView*)[self.view viewWithTag:1];
+    UIView *viewBeginaAnimated = view;
+    viewBeginaAnimated.frame = [[viewBeginaAnimated.layer presentationLayer] frame];
+    [viewBeginaAnimated.layer removeAllAnimations];
+    //[view stopAnimating];
+    //view.hidden = NO;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
+    CGRect imageSize = CGRectMake(0, self.view.frame.size.height*0.1, self.view.frame.size.width, self.view.frame.size.height*0.8);
+    
     NSArray *imageNames = @[@"DSC00731.jpg", @"DSC00732.jpg", @"DSC00733.jpg", @"DSC00736.jpg",
-                             @"win_5.png", @"win_6.png", @"win_7.png", @"win_8.png",
-                             @"win_9.png", @"win_10.png", @"win_11.png", @"win_12.png",
-                             @"win_13.png", @"win_14.png", @"win_15.png", @"win_16.png"];
+                             @"DSC00737.jpg", @"DSC00739.jpg", @"DSC00740.jpg", @"DSC00741.jpg",
+                             @"DSC00742.jpg", @"DSC00743.jpg"];
     
     NSMutableArray *images = [[NSMutableArray alloc] init];
     for(size_t i=0; i<imageNames.count; ++i){
         UIImage *originalImg = [UIImage imageNamed:[imageNames objectAtIndex:i]];
-        CGSize newSize = CGSizeMake(86, 193);
-        UIGraphicsBeginImageContextWithOptions(newSize, NO, 0.0);
-        [originalImg drawInRect:CGRectMake(0, 0, newSize.width, newSize.height)];
+        UIGraphicsBeginImageContextWithOptions(imageSize.size, NO, 0.0);
+        [originalImg drawInRect:CGRectMake(0, 0, imageSize.size.width, imageSize.size.height)];
         UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         [images addObject:newImage];
@@ -45,20 +56,23 @@
     }
     
     // Normal animation
-    UIImageView *animationImageView = [[UIImageView alloc] initWithFrame:CGRectMake(60, 95, 86, 193)];
+    UIImageView *animationImageView = [[UIImageView alloc] initWithFrame:imageSize];
     animationImageView.animationImages = images;
-    animationImageView.animationDuration = 0.5;
+    animationImageView.animationDuration = 3;
+    animationImageView.tag = 1;
 	[animationImageView startAnimating];
-    
+
+
     [self.view addSubview:animationImageView];
     
-    UIImageView *slowAnimationImageView = [[UIImageView alloc] initWithFrame:CGRectMake(160, 95, 86, 193)];
-    slowAnimationImageView.animationImages = images;
-    slowAnimationImageView.animationDuration = 5;
-    
-    [self.view addSubview:slowAnimationImageView];
-    [slowAnimationImageView startAnimating];
-    
+    UIButton *stopButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [stopButton addTarget:self
+               action:@selector(stopButtonMethod)
+     forControlEvents:UIControlEventTouchUpInside];
+    [stopButton setTitle:@"Stop" forState:UIControlStateNormal];
+    int buttonWidth = 50;
+    stopButton.frame = CGRectMake(0, imageSize.size.height, buttonWidth, buttonWidth);
+    [self.view addSubview:stopButton];
 }
 
 - (void)didReceiveMemoryWarning
