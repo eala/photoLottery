@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2800E53F19599B4600D60109 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2800E53E19599B4600D60109 /* Foundation.framework */; };
+		2800E54119599B4600D60109 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2800E54019599B4600D60109 /* CoreGraphics.framework */; };
+		2800E54319599B4600D60109 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2800E54219599B4600D60109 /* UIKit.framework */; };
+		2800E54919599B4600D60109 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2800E54719599B4600D60109 /* InfoPlist.strings */; };
+		2800E54B19599B4600D60109 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2800E54A19599B4600D60109 /* main.m */; };
+		2800E54F19599B4600D60109 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2800E54E19599B4600D60109 /* AppDelegate.m */; };
+		2800E55219599B4600D60109 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2800E55019599B4600D60109 /* Main_iPhone.storyboard */; };
+		2800E55519599B4600D60109 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2800E55319599B4600D60109 /* Main_iPad.storyboard */; };
+		2800E55819599B4600D60109 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2800E55719599B4600D60109 /* ViewController.m */; };
+		2800E55A19599B4600D60109 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2800E55919599B4600D60109 /* Images.xcassets */; };
+		2800E56119599B4600D60109 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2800E56019599B4600D60109 /* XCTest.framework */; };
+		2800E56219599B4600D60109 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2800E53E19599B4600D60109 /* Foundation.framework */; };
+		2800E56319599B4600D60109 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2800E54219599B4600D60109 /* UIKit.framework */; };
+		2800E56B19599B4600D60109 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2800E56919599B4600D60109 /* InfoPlist.strings */; };
+		2800E56D19599B4600D60109 /* photoLotteryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2800E56C19599B4600D60109 /* photoLotteryTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2800E56419599B4600D60109 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2800E53319599B4600D60109 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2800E53A19599B4600D60109;
+			remoteInfo = photoLottery;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2800E53B19599B4600D60109 /* photoLottery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = photoLottery.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2800E53E19599B4600D60109 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2800E54019599B4600D60109 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2800E54219599B4600D60109 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2800E54619599B4600D60109 /* photoLottery-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "photoLottery-Info.plist"; sourceTree = "<group>"; };
+		2800E54819599B4600D60109 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2800E54A19599B4600D60109 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2800E54C19599B4600D60109 /* photoLottery-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "photoLottery-Prefix.pch"; sourceTree = "<group>"; };
+		2800E54D19599B4600D60109 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2800E54E19599B4600D60109 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2800E55119599B4600D60109 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		2800E55419599B4600D60109 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		2800E55619599B4600D60109 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2800E55719599B4600D60109 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2800E55919599B4600D60109 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2800E55F19599B4600D60109 /* photoLotteryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = photoLotteryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2800E56019599B4600D60109 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		2800E56819599B4600D60109 /* photoLotteryTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "photoLotteryTests-Info.plist"; sourceTree = "<group>"; };
+		2800E56A19599B4600D60109 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2800E56C19599B4600D60109 /* photoLotteryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = photoLotteryTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2800E53819599B4600D60109 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2800E54119599B4600D60109 /* CoreGraphics.framework in Frameworks */,
+				2800E54319599B4600D60109 /* UIKit.framework in Frameworks */,
+				2800E53F19599B4600D60109 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2800E55C19599B4600D60109 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2800E56119599B4600D60109 /* XCTest.framework in Frameworks */,
+				2800E56319599B4600D60109 /* UIKit.framework in Frameworks */,
+				2800E56219599B4600D60109 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2800E53219599B4600D60109 = {
+			isa = PBXGroup;
+			children = (
+				2800E54419599B4600D60109 /* photoLottery */,
+				2800E56619599B4600D60109 /* photoLotteryTests */,
+				2800E53D19599B4600D60109 /* Frameworks */,
+				2800E53C19599B4600D60109 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2800E53C19599B4600D60109 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2800E53B19599B4600D60109 /* photoLottery.app */,
+				2800E55F19599B4600D60109 /* photoLotteryTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2800E53D19599B4600D60109 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2800E53E19599B4600D60109 /* Foundation.framework */,
+				2800E54019599B4600D60109 /* CoreGraphics.framework */,
+				2800E54219599B4600D60109 /* UIKit.framework */,
+				2800E56019599B4600D60109 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2800E54419599B4600D60109 /* photoLottery */ = {
+			isa = PBXGroup;
+			children = (
+				2800E54D19599B4600D60109 /* AppDelegate.h */,
+				2800E54E19599B4600D60109 /* AppDelegate.m */,
+				2800E55019599B4600D60109 /* Main_iPhone.storyboard */,
+				2800E55319599B4600D60109 /* Main_iPad.storyboard */,
+				2800E55619599B4600D60109 /* ViewController.h */,
+				2800E55719599B4600D60109 /* ViewController.m */,
+				2800E55919599B4600D60109 /* Images.xcassets */,
+				2800E54519599B4600D60109 /* Supporting Files */,
+			);
+			path = photoLottery;
+			sourceTree = "<group>";
+		};
+		2800E54519599B4600D60109 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2800E54619599B4600D60109 /* photoLottery-Info.plist */,
+				2800E54719599B4600D60109 /* InfoPlist.strings */,
+				2800E54A19599B4600D60109 /* main.m */,
+				2800E54C19599B4600D60109 /* photoLottery-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2800E56619599B4600D60109 /* photoLotteryTests */ = {
+			isa = PBXGroup;
+			children = (
+				2800E56C19599B4600D60109 /* photoLotteryTests.m */,
+				2800E56719599B4600D60109 /* Supporting Files */,
+			);
+			path = photoLotteryTests;
+			sourceTree = "<group>";
+		};
+		2800E56719599B4600D60109 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2800E56819599B4600D60109 /* photoLotteryTests-Info.plist */,
+				2800E56919599B4600D60109 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2800E53A19599B4600D60109 /* photoLottery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2800E57019599B4600D60109 /* Build configuration list for PBXNativeTarget "photoLottery" */;
+			buildPhases = (
+				2800E53719599B4600D60109 /* Sources */,
+				2800E53819599B4600D60109 /* Frameworks */,
+				2800E53919599B4600D60109 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = photoLottery;
+			productName = photoLottery;
+			productReference = 2800E53B19599B4600D60109 /* photoLottery.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2800E55E19599B4600D60109 /* photoLotteryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2800E57319599B4600D60109 /* Build configuration list for PBXNativeTarget "photoLotteryTests" */;
+			buildPhases = (
+				2800E55B19599B4600D60109 /* Sources */,
+				2800E55C19599B4600D60109 /* Frameworks */,
+				2800E55D19599B4600D60109 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2800E56519599B4600D60109 /* PBXTargetDependency */,
+			);
+			name = photoLotteryTests;
+			productName = photoLotteryTests;
+			productReference = 2800E55F19599B4600D60109 /* photoLotteryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2800E53319599B4600D60109 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = eala;
+				TargetAttributes = {
+					2800E55E19599B4600D60109 = {
+						TestTargetID = 2800E53A19599B4600D60109;
+					};
+				};
+			};
+			buildConfigurationList = 2800E53619599B4600D60109 /* Build configuration list for PBXProject "photoLottery" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2800E53219599B4600D60109;
+			productRefGroup = 2800E53C19599B4600D60109 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2800E53A19599B4600D60109 /* photoLottery */,
+				2800E55E19599B4600D60109 /* photoLotteryTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2800E53919599B4600D60109 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2800E55519599B4600D60109 /* Main_iPad.storyboard in Resources */,
+				2800E55A19599B4600D60109 /* Images.xcassets in Resources */,
+				2800E55219599B4600D60109 /* Main_iPhone.storyboard in Resources */,
+				2800E54919599B4600D60109 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2800E55D19599B4600D60109 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2800E56B19599B4600D60109 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2800E53719599B4600D60109 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2800E55819599B4600D60109 /* ViewController.m in Sources */,
+				2800E54F19599B4600D60109 /* AppDelegate.m in Sources */,
+				2800E54B19599B4600D60109 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2800E55B19599B4600D60109 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2800E56D19599B4600D60109 /* photoLotteryTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2800E56519599B4600D60109 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2800E53A19599B4600D60109 /* photoLottery */;
+			targetProxy = 2800E56419599B4600D60109 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2800E54719599B4600D60109 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2800E54819599B4600D60109 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2800E55019599B4600D60109 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2800E55119599B4600D60109 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		2800E55319599B4600D60109 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2800E55419599B4600D60109 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		2800E56919599B4600D60109 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2800E56A19599B4600D60109 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2800E56E19599B4600D60109 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2800E56F19599B4600D60109 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2800E57119599B4600D60109 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "photoLottery/photoLottery-Prefix.pch";
+				INFOPLIST_FILE = "photoLottery/photoLottery-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		2800E57219599B4600D60109 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "photoLottery/photoLottery-Prefix.pch";
+				INFOPLIST_FILE = "photoLottery/photoLottery-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		2800E57419599B4600D60109 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/photoLottery.app/photoLottery";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "photoLottery/photoLottery-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "photoLotteryTests/photoLotteryTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		2800E57519599B4600D60109 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/photoLottery.app/photoLottery";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "photoLottery/photoLottery-Prefix.pch";
+				INFOPLIST_FILE = "photoLotteryTests/photoLotteryTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2800E53619599B4600D60109 /* Build configuration list for PBXProject "photoLottery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2800E56E19599B4600D60109 /* Debug */,
+				2800E56F19599B4600D60109 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2800E57019599B4600D60109 /* Build configuration list for PBXNativeTarget "photoLottery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2800E57119599B4600D60109 /* Debug */,
+				2800E57219599B4600D60109 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2800E57319599B4600D60109 /* Build configuration list for PBXNativeTarget "photoLotteryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2800E57419599B4600D60109 /* Debug */,
+				2800E57519599B4600D60109 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2800E53319599B4600D60109 /* Project object */;
+}
