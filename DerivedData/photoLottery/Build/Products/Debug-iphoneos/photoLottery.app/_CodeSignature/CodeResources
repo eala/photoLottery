@@ -16,13 +16,13 @@
 		<data>
 		dd0MZc2EZWlpe9oBR//bePmQags=
 		</data>
+		<key>Base.lproj/Main_iPhone.storyboardc/R0b-cM-Dyd-view-gns-ym-8HO.nib</key>
+		<data>
+		Cg3LI49STckkOTVx7XDFcXi+7EA=
+		</data>
 		<key>Base.lproj/Main_iPhone.storyboardc/UIViewController-YAc-m8-Pax.nib</key>
 		<data>
-		nSCDJSAmv7KOu6Xdk0IJfIvk7c8=
-		</data>
-		<key>Base.lproj/Main_iPhone.storyboardc/vXZ-lx-hvc-view-kh9-bI-dsS.nib</key>
-		<data>
-		E3tBkM/vUWGeGgWwMqWy9Dw1Ptk=
+		Mx/K+aMtbYetaVdatfy4n4wRmgI=
 		</data>
 		<key>DSC00731.jpg</key>
 		<data>
@@ -64,9 +64,29 @@
 		<data>
 		xnHgYTu56scPK7Egb1168P3MSXs=
 		</data>
+		<key>ELCAlbumPickerController.nib</key>
+		<data>
+		5YSNyoZey59M2ymtpGVYz6jnuBY=
+		</data>
+		<key>ELCAssetPicker.nib</key>
+		<data>
+		7/fRi69MSt39ZYCaMTcx950lDlU=
+		</data>
+		<key>ELCAssetTablePicker.nib</key>
+		<data>
+		z7AiCy2AuAXFg0a2ORugzSTKP+c=
+		</data>
 		<key>LaunchImage-700-568h@2x.png</key>
 		<data>
 		V1VdV48TyrImURVWCaose9yz87E=
+		</data>
+		<key>Overlay.png</key>
+		<data>
+		SGRLQ0bTNx9AyTZLjJJFeZ6lHzs=
+		</data>
+		<key>Overlay@2x.png</key>
+		<data>
+		18et16kV9SKvr9bL00+FsdENXZQ=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -74,7 +94,7 @@
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		s7JFeCYLwEQAVD+jXQW29EXF2Q4=
+		PNil1VYKKFnaoa8hJl1nclzboCU=
 		</data>
 		<key>en.lproj/InfoPlist.strings</key>
 		<data>
@@ -159,13 +179,13 @@
 		<data>
 		dd0MZc2EZWlpe9oBR//bePmQags=
 		</data>
+		<key>Base.lproj/Main_iPhone.storyboardc/R0b-cM-Dyd-view-gns-ym-8HO.nib</key>
+		<data>
+		Cg3LI49STckkOTVx7XDFcXi+7EA=
+		</data>
 		<key>Base.lproj/Main_iPhone.storyboardc/UIViewController-YAc-m8-Pax.nib</key>
 		<data>
-		nSCDJSAmv7KOu6Xdk0IJfIvk7c8=
-		</data>
-		<key>Base.lproj/Main_iPhone.storyboardc/vXZ-lx-hvc-view-kh9-bI-dsS.nib</key>
-		<data>
-		E3tBkM/vUWGeGgWwMqWy9Dw1Ptk=
+		Mx/K+aMtbYetaVdatfy4n4wRmgI=
 		</data>
 		<key>DSC00731.jpg</key>
 		<data>
@@ -207,9 +227,29 @@
 		<data>
 		xnHgYTu56scPK7Egb1168P3MSXs=
 		</data>
+		<key>ELCAlbumPickerController.nib</key>
+		<data>
+		5YSNyoZey59M2ymtpGVYz6jnuBY=
+		</data>
+		<key>ELCAssetPicker.nib</key>
+		<data>
+		7/fRi69MSt39ZYCaMTcx950lDlU=
+		</data>
+		<key>ELCAssetTablePicker.nib</key>
+		<data>
+		z7AiCy2AuAXFg0a2ORugzSTKP+c=
+		</data>
 		<key>LaunchImage-700-568h@2x.png</key>
 		<data>
 		V1VdV48TyrImURVWCaose9yz87E=
+		</data>
+		<key>Overlay.png</key>
+		<data>
+		SGRLQ0bTNx9AyTZLjJJFeZ6lHzs=
+		</data>
+		<key>Overlay@2x.png</key>
+		<data>
+		18et16kV9SKvr9bL00+FsdENXZQ=
 		</data>
 		<key>PkgInfo</key>
 		<data>
@@ -217,7 +257,7 @@
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		s7JFeCYLwEQAVD+jXQW29EXF2Q4=
+		PNil1VYKKFnaoa8hJl1nclzboCU=
 		</data>
 		<key>en.lproj/InfoPlist.strings</key>
 		<data>
