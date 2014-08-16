@@ -136,7 +136,6 @@
 		2800E53219599B4600D60109 = {
 			isa = PBXGroup;
 			children = (
-				2800E59619599B9E00D60109 /* photos */,
 				2800E54419599B4600D60109 /* photoLottery */,
 				2800E56619599B4600D60109 /* photoLotteryTests */,
 				2800E53D19599B4600D60109 /* Frameworks */,
@@ -182,6 +181,7 @@
 		2800E54519599B4600D60109 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2800E59619599B9E00D60109 /* photos */,
 				2800E54619599B4600D60109 /* photoLottery-Info.plist */,
 				2800E54719599B4600D60109 /* InfoPlist.strings */,
 				2800E54A19599B4600D60109 /* main.m */,
@@ -239,6 +239,7 @@
 				2800E58519599B9000D60109 /* win_16.png */,
 			);
 			name = photos;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -582,6 +583,7 @@
 				2800E57219599B4600D60109 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2800E57319599B4600D60109 /* Build configuration list for PBXNativeTarget "photoLotteryTests" */ = {
 			isa = XCConfigurationList;
@@ -590,6 +592,7 @@
 				2800E57519599B4600D60109 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

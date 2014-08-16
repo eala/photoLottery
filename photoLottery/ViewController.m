@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-
+@property (nonatomic) NSMutableArray *selectedImages;
 @end
 
 @implementation ViewController
