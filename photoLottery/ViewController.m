@@ -26,11 +26,13 @@
 {
     //NSLog(@"Stop It!");
     UIImageView *view = (UIImageView*)[self.view viewWithTag:1];
-    UIView *viewBeginaAnimated = view;
-    viewBeginaAnimated.frame = [[viewBeginaAnimated.layer presentationLayer] frame];
-    [viewBeginaAnimated.layer removeAllAnimations];
+    [view stopAnimating];
+    //UIView *viewBeginaAnimated = view;
+    //viewBeginaAnimated.frame = [[viewBeginaAnimated.layer presentationLayer] frame];
+    //[viewBeginaAnimated.layer removeAllAnimations];
     //[view stopAnimating];
     //view.hidden = NO;
+    
 }
 
 - (void)viewDidLoad
@@ -58,8 +60,12 @@
     // Normal animation
     UIImageView *animationImageView = [[UIImageView alloc] initWithFrame:imageSize];
     animationImageView.animationImages = images;
+    //animationImageView.highlightedAnimationImages = images;
     animationImageView.animationDuration = 3;
     animationImageView.tag = 1;
+    
+    animationImageView.image = [images lastObject];
+    
 	[animationImageView startAnimating];
 
 
@@ -73,6 +79,9 @@
     int buttonWidth = 50;
     stopButton.frame = CGRectMake(0, imageSize.size.height, buttonWidth, buttonWidth);
     [self.view addSubview:stopButton];
+    
+    // re-start button
+    UIButton *startButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 }
 
 - (void)didReceiveMemoryWarning
