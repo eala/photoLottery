@@ -51,6 +51,9 @@
 		362B0FD819CB023300627EA1 /* RandomPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 362B0FD719CB023300627EA1 /* RandomPickerViewController.m */; };
 		362B0FDA19CB043000627EA1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362B0FD919CB043000627EA1 /* QuartzCore.framework */; };
 		362B0FDD19CB0A4D00627EA1 /* targetIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 362B0FDC19CB0A4D00627EA1 /* targetIndicatorView.m */; };
+		362B0FE019CB3E9100627EA1 /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 362B0FDF19CB3E9100627EA1 /* AudioController.m */; };
+		362B0FE219CB41FB00627EA1 /* final-countdown.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 362B0FE119CB41FB00627EA1 /* final-countdown.m4a */; };
+		362B0FE519CB435500627EA1 /* randomize.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 362B0FE419CB435500627EA1 /* randomize.m4a */; };
 		36FCFD1A199F6069008C9E82 /* PhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FCFD19199F6069008C9E82 /* PhotoPickerViewController.m */; };
 		36FCFD3C199F6A16008C9E82 /* ELCAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FCFD1E199F6A16008C9E82 /* ELCAlbumPickerController.m */; };
 		36FCFD3D199F6A16008C9E82 /* ELCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FCFD20199F6A16008C9E82 /* ELCAsset.m */; };
@@ -132,6 +135,10 @@
 		362B0FD919CB043000627EA1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		362B0FDB19CB0A4D00627EA1 /* targetIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = targetIndicatorView.h; sourceTree = "<group>"; };
 		362B0FDC19CB0A4D00627EA1 /* targetIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = targetIndicatorView.m; sourceTree = "<group>"; };
+		362B0FDE19CB3E9100627EA1 /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioController.h; sourceTree = "<group>"; };
+		362B0FDF19CB3E9100627EA1 /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioController.m; sourceTree = "<group>"; };
+		362B0FE119CB41FB00627EA1 /* final-countdown.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "final-countdown.m4a"; sourceTree = "<group>"; };
+		362B0FE419CB435500627EA1 /* randomize.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = randomize.m4a; sourceTree = "<group>"; };
 		36FCFD18199F6069008C9E82 /* PhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPickerViewController.h; sourceTree = "<group>"; };
 		36FCFD19199F6069008C9E82 /* PhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPickerViewController.m; sourceTree = "<group>"; };
 		36FCFD1D199F6A16008C9E82 /* ELCAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAlbumPickerController.h; sourceTree = "<group>"; };
@@ -240,6 +247,9 @@
 				36FCFD19199F6069008C9E82 /* PhotoPickerViewController.m */,
 				2800E55619599B4600D60109 /* ViewController.h */,
 				2800E55719599B4600D60109 /* ViewController.m */,
+				362B0FDE19CB3E9100627EA1 /* AudioController.h */,
+				362B0FDF19CB3E9100627EA1 /* AudioController.m */,
+				362B0FE319CB421300627EA1 /* Resources */,
 				2800E55919599B4600D60109 /* Images.xcassets */,
 				2800E54519599B4600D60109 /* Supporting Files */,
 			);
@@ -308,6 +318,15 @@
 			);
 			name = photos;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		362B0FE319CB421300627EA1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				362B0FE119CB41FB00627EA1 /* final-countdown.m4a */,
+				362B0FE419CB435500627EA1 /* randomize.m4a */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		36FCFD1B199F69F5008C9E82 /* ELCImagePicker */ = {
@@ -469,7 +488,9 @@
 				2800E55A19599B4600D60109 /* Images.xcassets in Resources */,
 				2800E5A81959B49C00D60109 /* DSC00741.jpg in Resources */,
 				2800E59319599B9000D60109 /* win_14.png in Resources */,
+				362B0FE219CB41FB00627EA1 /* final-countdown.m4a in Resources */,
 				36FCFD44199F6A16008C9E82 /* ELCAssetPicker.xib in Resources */,
+				362B0FE519CB435500627EA1 /* randomize.m4a in Resources */,
 				2800E58A19599B9000D60109 /* win_5.png in Resources */,
 				2800E55219599B4600D60109 /* Main_iPhone.storyboard in Resources */,
 				2800E58919599B9000D60109 /* win_4.png in Resources */,
@@ -500,6 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36FCFD48199F6A16008C9E82 /* EYLargePhoto.m in Sources */,
+				362B0FE019CB3E9100627EA1 /* AudioController.m in Sources */,
 				36FCFD3E199F6A16008C9E82 /* ELCAssetCell.m in Sources */,
 				36FCFD4A199F6A16008C9E82 /* UIImage+EYFixOrientation.m in Sources */,
 				36FCFD42199F6A16008C9E82 /* ELCOverlayImageView.m in Sources */,

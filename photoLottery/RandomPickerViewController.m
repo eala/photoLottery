@@ -7,9 +7,10 @@
 //
 
 #import "RandomPickerViewController.h"
+#import "AudioController.h"
 
 @interface RandomPickerViewController ()
-
+@property (strong, nonatomic) AudioController *audioController;
 @end
 
 @implementation RandomPickerViewController
@@ -27,7 +28,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    self.audioController = [[AudioController alloc] init];
+    [self.audioController playBackgroundMusic];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,6 +40,8 @@
 
 - (IBAction)startRandom:(id)sender 
 {
+    [self.audioController playEffectSound];
+    
     CALayer *targetIndicatorLayer = self.targetIndicatorOutlet.layer;
 	
 	// Create a keyframe animation to follow a path back to the center.
