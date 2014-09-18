@@ -48,6 +48,9 @@
 		2800E5A81959B49C00D60109 /* DSC00741.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2800E59E1959B49C00D60109 /* DSC00741.jpg */; };
 		2800E5A91959B49C00D60109 /* DSC00742.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2800E59F1959B49C00D60109 /* DSC00742.jpg */; };
 		2800E5AA1959B49C00D60109 /* DSC00743.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2800E5A01959B49C00D60109 /* DSC00743.jpg */; };
+		362B0FD819CB023300627EA1 /* RandomPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 362B0FD719CB023300627EA1 /* RandomPickerViewController.m */; };
+		362B0FDA19CB043000627EA1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362B0FD919CB043000627EA1 /* QuartzCore.framework */; };
+		362B0FDD19CB0A4D00627EA1 /* targetIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 362B0FDC19CB0A4D00627EA1 /* targetIndicatorView.m */; };
 		36FCFD1A199F6069008C9E82 /* PhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FCFD19199F6069008C9E82 /* PhotoPickerViewController.m */; };
 		36FCFD3C199F6A16008C9E82 /* ELCAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FCFD1E199F6A16008C9E82 /* ELCAlbumPickerController.m */; };
 		36FCFD3D199F6A16008C9E82 /* ELCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FCFD20199F6A16008C9E82 /* ELCAsset.m */; };
@@ -124,6 +127,11 @@
 		2800E59E1959B49C00D60109 /* DSC00741.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DSC00741.jpg; sourceTree = "<group>"; };
 		2800E59F1959B49C00D60109 /* DSC00742.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DSC00742.jpg; sourceTree = "<group>"; };
 		2800E5A01959B49C00D60109 /* DSC00743.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DSC00743.jpg; sourceTree = "<group>"; };
+		362B0FD619CB023300627EA1 /* RandomPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomPickerViewController.h; sourceTree = "<group>"; };
+		362B0FD719CB023300627EA1 /* RandomPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomPickerViewController.m; sourceTree = "<group>"; };
+		362B0FD919CB043000627EA1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		362B0FDB19CB0A4D00627EA1 /* targetIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = targetIndicatorView.h; sourceTree = "<group>"; };
+		362B0FDC19CB0A4D00627EA1 /* targetIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = targetIndicatorView.m; sourceTree = "<group>"; };
 		36FCFD18199F6069008C9E82 /* PhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPickerViewController.h; sourceTree = "<group>"; };
 		36FCFD19199F6069008C9E82 /* PhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPickerViewController.m; sourceTree = "<group>"; };
 		36FCFD1D199F6A16008C9E82 /* ELCAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAlbumPickerController.h; sourceTree = "<group>"; };
@@ -163,8 +171,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36FCFD4C199F6AEA008C9E82 /* AssetsLibrary.framework in Frameworks */,
 				2800E54119599B4600D60109 /* CoreGraphics.framework in Frameworks */,
+				362B0FDA19CB043000627EA1 /* QuartzCore.framework in Frameworks */,
+				36FCFD4C199F6AEA008C9E82 /* AssetsLibrary.framework in Frameworks */,
 				2800E54319599B4600D60109 /* UIKit.framework in Frameworks */,
 				2800E53F19599B4600D60109 /* Foundation.framework in Frameworks */,
 			);
@@ -205,6 +214,7 @@
 		2800E53D19599B4600D60109 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				362B0FD919CB043000627EA1 /* QuartzCore.framework */,
 				36FCFD4B199F6AEA008C9E82 /* AssetsLibrary.framework */,
 				2800E53E19599B4600D60109 /* Foundation.framework */,
 				2800E54019599B4600D60109 /* CoreGraphics.framework */,
@@ -222,6 +232,10 @@
 				2800E54E19599B4600D60109 /* AppDelegate.m */,
 				2800E55019599B4600D60109 /* Main_iPhone.storyboard */,
 				2800E55319599B4600D60109 /* Main_iPad.storyboard */,
+				362B0FDB19CB0A4D00627EA1 /* targetIndicatorView.h */,
+				362B0FDC19CB0A4D00627EA1 /* targetIndicatorView.m */,
+				362B0FD619CB023300627EA1 /* RandomPickerViewController.h */,
+				362B0FD719CB023300627EA1 /* RandomPickerViewController.m */,
 				36FCFD18199F6069008C9E82 /* PhotoPickerViewController.h */,
 				36FCFD19199F6069008C9E82 /* PhotoPickerViewController.m */,
 				2800E55619599B4600D60109 /* ViewController.h */,
@@ -491,6 +505,7 @@
 				36FCFD42199F6A16008C9E82 /* ELCOverlayImageView.m in Sources */,
 				36FCFD3C199F6A16008C9E82 /* ELCAlbumPickerController.m in Sources */,
 				36FCFD41199F6A16008C9E82 /* ELCImagePickerController.m in Sources */,
+				362B0FD819CB023300627EA1 /* RandomPickerViewController.m in Sources */,
 				36FCFD40199F6A16008C9E82 /* ELCConsole.m in Sources */,
 				36FCFD3F199F6A16008C9E82 /* ELCAssetTablePicker.m in Sources */,
 				36FCFD3D199F6A16008C9E82 /* ELCAsset.m in Sources */,
@@ -499,6 +514,7 @@
 				36FCFD1A199F6069008C9E82 /* PhotoPickerViewController.m in Sources */,
 				2800E54F19599B4600D60109 /* AppDelegate.m in Sources */,
 				2800E54B19599B4600D60109 /* main.m in Sources */,
+				362B0FDD19CB0A4D00627EA1 /* targetIndicatorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
