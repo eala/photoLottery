@@ -15,6 +15,9 @@
 
 @implementation RandomPickerViewController
 
+// fixme later, check the height & width of iPad mini, and set unitSide as large as targetIndicatorView
+const int unitSide = 30;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -38,6 +41,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+    // enlarge the selected image or navigate to the new page
+}
+
 - (IBAction)startRandom:(id)sender 
 {
     [self.audioController playEffectSound];
@@ -54,17 +61,55 @@
 	UIBezierPath *bouncePath = [[UIBezierPath alloc] init];
 	
     // use Button click to adjust stopBouncing value
-    int offset = 5;
+    int offset = (int)(unitSide/2.0);
     CGPoint leftTopPt = CGPointMake(self.view.frame.origin.x + offset, self.view.frame.origin.y + offset);
-    CGPoint rightTopPt = CGPointMake(self.view.frame.origin.x + self.view.frame.size.width - 2 * offset, self.view.frame.origin.y + offset);
-    CGPoint rightButtomPt = CGPointMake(self.view.frame.origin.x + self.view.frame.size.width - 2 * offset, self.view.frame.origin.y + self.view.frame.origin.y + self.view.frame.size.height - 2 * offset);
-    CGPoint leftButtomPt = CGPointMake(self.view.frame.origin.x + offset, self.view.frame.origin.y + self.view.frame.origin.y + self.view.frame.size.height - 2 * offset);
+    CGPoint rightTopPt = CGPointMake(self.view.frame.origin.x + self.view.frame.size.width - offset, self.view.frame.origin.y + offset);
+    CGPoint rightButtomPt = CGPointMake(self.view.frame.origin.x + self.view.frame.size.width - offset, self.view.frame.origin.y + self.view.frame.size.height - offset);
+    CGPoint leftButtomPt = CGPointMake(self.view.frame.origin.x + offset, self.view.frame.origin.y + self.view.frame.size.height - offset);
     
     [bouncePath moveToPoint:leftTopPt];
-    [bouncePath addLineToPoint:rightTopPt];
-    [bouncePath addLineToPoint:rightButtomPt];
-    [bouncePath addLineToPoint:leftButtomPt];
-    [bouncePath addLineToPoint:leftTopPt];
+    
+    const int minCircles = 4;
+    const int maxCircles = 10;
+    int numCircles =  (arc4random() % (maxCircles-minCircles+1)) + minCircles;
+    
+    for (int i=0; i<numCircles; ++i) {
+        [bouncePath addLineToPoint:rightTopPt];
+        [bouncePath addLineToPoint:rightButtomPt];
+        [bouncePath addLineToPoint:leftButtomPt];
+        [bouncePath addLineToPoint:leftTopPt];
+    }
+    
+    const int totalSides = 4;
+    const int picsPerSide = 8;
+
+    int numSide = arc4random() % totalSides;
+    int sideOffset = arc4random() % picsPerSide;
+    if (numSide > 0) [bouncePath addLineToPoint:rightTopPt];
+    if (numSide > 1) [bouncePath addLineToPoint:rightButtomPt];
+    if (numSide > 2) [bouncePath addLineToPoint:leftButtomPt];
+    
+    int xMultiplier=1, yMultiplier=1;
+    switch (numSide) {
+        case 0:
+            xMultiplier=1;
+            yMultiplier=0;
+            break;
+        case 1:
+            xMultiplier=0;
+            yMultiplier=-1;
+            break;
+        case 2:
+            xMultiplier=-1;
+            yMultiplier=0;
+            break;
+        case 3:
+            xMultiplier=0;
+            yMultiplier=1;
+            break;
+    }
+
+    [bouncePath addLineToPoint: CGPointMake(bouncePath.currentPoint.x + (sideOffset * xMultiplier * unitSide), bouncePath.currentPoint.y + (sideOffset * yMultiplier * unitSide))];
 	
 	bounceAnimation.path = [bouncePath CGPath];
 	bounceAnimation.duration = animationDuration;
