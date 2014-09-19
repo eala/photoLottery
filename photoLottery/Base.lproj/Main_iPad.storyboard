@@ -94,7 +94,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="2OP-TT-HBf" kind="push" id="EEa-5l-b0u"/>
+                                    <segue destination="2OP-TT-HBf" kind="push" identifier="SEGUE_TO_GAME_SCREEN" id="EEa-5l-b0u"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dV-JR-RA2">

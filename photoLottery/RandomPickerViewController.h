@@ -11,5 +11,6 @@
 
 @interface RandomPickerViewController : UIViewController
 @property (strong, nonatomic) targetIndicatorView *indicatorView;
+@property (nonatomic) NSMutableArray *selectedImages;
 - (IBAction)startRandom:(id)sender;
 @end

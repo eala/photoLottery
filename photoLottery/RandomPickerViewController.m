@@ -54,6 +54,18 @@ const int unitSide = 128;
     [self.audioController playBackgroundMusic];
     #endif
     
+    // display images
+    int offset = 0;
+    for (UIImage *image in self.selectedImages){
+        UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
+        //[imageview setContentMode:UIViewContentModeScaleAspectFit];
+        [imageview setContentMode:UIViewContentModeScaleToFill];
+        imageview.frame = CGRectMake(0, offset, 128, 128);
+        offset+=128;
+        
+        [self.view addSubview:imageview];
+    }
+    
     [self.view addSubview:self.indicatorView];
 	self.indicatorView.frame = CGRectMake(0, 0, unitSide, unitSide);
 }

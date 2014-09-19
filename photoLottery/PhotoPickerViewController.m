@@ -9,6 +9,8 @@
 #import "PhotoPickerViewController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 
+#import "RandomPickerViewController.h"
+
 @interface PhotoPickerViewController ()
 
 @property (nonatomic) NSMutableArray *selectedImages;
@@ -163,5 +165,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"SEGUE_TO_GAME_SCREEN"])
+    {
+        // Get reference to the destination view controller
+        RandomPickerViewController *vc = [segue destinationViewController];
+        
+        // Pass any objects to the view controller here, like...
+        [vc setSelectedImages:self.selectedImages];
+    }
+}
+
 
 @end
