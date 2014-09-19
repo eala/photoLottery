@@ -53,6 +53,10 @@ const int unitSide = 128;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
+                                          initWithTarget:self action:@selector(showHideNavbar:)];
+    [self.view addGestureRecognizer:tapGesture];
+    
     _firstRound = YES;
     
     #if TURN_ON_MUSIC
@@ -77,6 +81,23 @@ const int unitSide = 128;
     self.indicatorView.alpha = 0.2f;
 }
 
+-(void) showHideNavbar:(id) sender
+{
+    // write code to show/hide nav bar here
+    // check if the Navigation Bar is shown
+    if (self.navigationController.navigationBar.hidden == NO)
+    {
+        // hide the Navigation Bar
+        [self.navigationController setNavigationBarHidden:YES animated:YES];
+    }
+    // if Navigation Bar is already hidden
+    else if (self.navigationController.navigationBar.hidden == YES)
+    {
+        // Show the Navigation Bar
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
+    }
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -92,6 +113,9 @@ const int unitSide = 128;
     #if TURN_ON_MUSIC
     [self.audioController playEffectSound];
     #endif
+    
+    //[[self navigationController] setNavigationBarHidden:YES animated:YES];
+    
     CALayer *targetIndicatorLayer = self.indicatorView.layer;
 	
 	// Create a keyframe animation to follow a path back to the center.
