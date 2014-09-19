@@ -11,11 +11,14 @@
 
 @interface RandomPickerViewController ()
 @property (strong, nonatomic) AudioController *audioController;
+@property (nonatomic) CGPoint endPoint;
+@property (nonatomic) int endSide;
+@property (nonatomic) BOOL firstRound;
 @end
 
 @implementation RandomPickerViewController
 
-#define TURN_ON_MUSIC 0
+#define TURN_ON_MUSIC 1
 
 -(targetIndicatorView *)indicatorView
 {
@@ -49,6 +52,8 @@ const int unitSide = 128;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _firstRound = YES;
     
     #if TURN_ON_MUSIC
     [self.audioController playBackgroundMusic];
@@ -104,7 +109,16 @@ const int unitSide = 128;
     CGPoint rightButtomPt = CGPointMake(self.view.frame.origin.x + self.view.frame.size.width - offset, self.view.frame.origin.y + self.view.frame.size.height - offset);
     CGPoint leftButtomPt = CGPointMake(self.view.frame.origin.x + offset, self.view.frame.origin.y + self.view.frame.size.height - offset);
     
-    [bouncePath moveToPoint:leftTopPt];
+    if (self.firstRound) {
+        [bouncePath moveToPoint:leftTopPt];
+        self.firstRound = NO;
+    }else{
+        [bouncePath moveToPoint:self.endPoint];
+        if (self.endSide < 1) [bouncePath addLineToPoint:rightTopPt];
+        if (self.endSide < 2) [bouncePath addLineToPoint:rightButtomPt];
+        if (self.endSide < 3) [bouncePath addLineToPoint:leftButtomPt];
+        [bouncePath addLineToPoint:leftTopPt];
+    }
     
     const int minCircles = 4;
     const int maxCircles = 10;
@@ -118,23 +132,34 @@ const int unitSide = 128;
     }
     
     const int totalSides = 4;
-    const int picsPerSide = 8;
+    const int picsInLongSide = 8;
+    const int picsInShortSide = 6;
+    
+    UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
 
-    int numSide = arc4random() % totalSides;
+    self.endSide = arc4random() % totalSides;
+    int picsPerSide = 0;
+    
+    if (UIInterfaceOrientationPortrait == interfaceOrientation || UIInterfaceOrientationPortraitUpsideDown == interfaceOrientation) {
+        picsPerSide = ( 0 == (self.endSide % 2) )? picsInShortSide :picsInLongSide;
+    }else if(UIInterfaceOrientationLandscapeLeft == interfaceOrientation || UIInterfaceOrientationLandscapeRight == interfaceOrientation){
+        picsPerSide = ( 1 == (self.endSide % 2) )? picsInShortSide :picsInLongSide;
+    }
+    
     int sideOffset = arc4random() % picsPerSide;
-    if (numSide > 0) [bouncePath addLineToPoint:rightTopPt];
-    if (numSide > 1) [bouncePath addLineToPoint:rightButtomPt];
-    if (numSide > 2) [bouncePath addLineToPoint:leftButtomPt];
+    if (self.endSide > 0) [bouncePath addLineToPoint:rightTopPt];
+    if (self.endSide > 1) [bouncePath addLineToPoint:rightButtomPt];
+    if (self.endSide > 2) [bouncePath addLineToPoint:leftButtomPt];
     
     int xMultiplier=1, yMultiplier=1;
-    switch (numSide) {
+    switch (self.endSide) {
         case 0:
             xMultiplier=1;
             yMultiplier=0;
             break;
         case 1:
             xMultiplier=0;
-            yMultiplier=-1;
+            yMultiplier=1;
             break;
         case 2:
             xMultiplier=-1;
@@ -142,12 +167,13 @@ const int unitSide = 128;
             break;
         case 3:
             xMultiplier=0;
-            yMultiplier=1;
+            yMultiplier=-1;
             break;
     }
 
-    [bouncePath addLineToPoint: CGPointMake(bouncePath.currentPoint.x + (sideOffset * xMultiplier * unitSide), bouncePath.currentPoint.y + (sideOffset * yMultiplier * unitSide))];
-	
+    self.endPoint = CGPointMake(bouncePath.currentPoint.x + (sideOffset * xMultiplier * unitSide), bouncePath.currentPoint.y + (sideOffset * yMultiplier * unitSide));
+    [bouncePath addLineToPoint: self.endPoint];
+
 	bounceAnimation.path = [bouncePath CGPath];
 	bounceAnimation.duration = animationDuration;
 	
@@ -159,16 +185,14 @@ const int unitSide = 128;
 	theGroup.duration = animationDuration;
 	theGroup.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
 	
-	//theGroup.animations = @[bounceAnimation, transformAnimation];
 	theGroup.animations = [NSArray arrayWithObject:bounceAnimation];
+    theGroup.removedOnCompletion = NO;
 	
 	// Add the animation group to the layer.
 	[targetIndicatorLayer addAnimation:theGroup forKey:@"animatePosition"];
     
-    bounceAnimation.path = [bouncePath CGPath];
-    bounceAnimation.duration = animationDuration;
-    
-    [targetIndicatorLayer addAnimation:bounceAnimation forKey:@"targetIndicatorCircleFrame"];
+    targetIndicatorLayer.position = self.endPoint;
+
 }
 
 @end
