@@ -15,8 +15,16 @@
 
 @implementation RandomPickerViewController
 
+-(targetIndicatorView *)indicatorView
+{
+    if (!_indicatorView) {
+        _indicatorView = [[targetIndicatorView alloc] init];
+    }
+    return _indicatorView;
+}
+
 // fixme later, check the height & width of iPad mini, and set unitSide as large as targetIndicatorView
-const int unitSide = 30;
+const int unitSide = 128;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +41,9 @@ const int unitSide = 30;
     // Do any additional setup after loading the view.
     self.audioController = [[AudioController alloc] init];
     [self.audioController playBackgroundMusic];
+    
+    [self.view addSubview:self.indicatorView];
+	self.indicatorView.frame = CGRectMake(0, 0, unitSide, unitSide);
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,12 +60,13 @@ const int unitSide = 30;
 {
     [self.audioController playEffectSound];
     
-    CALayer *targetIndicatorLayer = self.targetIndicatorOutlet.layer;
+    CALayer *targetIndicatorLayer = self.indicatorView.layer;
 	
 	// Create a keyframe animation to follow a path back to the center.
 	CAKeyframeAnimation *bounceAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-	bounceAnimation.removedOnCompletion = NO;
-	
+	//bounceAnimation.removedOnCompletion = NO;
+	bounceAnimation.removedOnCompletion = YES;
+    
 	CGFloat animationDuration = 8.0f;
 	
 	// Create the path for the bounces.

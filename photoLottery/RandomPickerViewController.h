@@ -10,7 +10,6 @@
 #import "targetIndicatorView.h"
 
 @interface RandomPickerViewController : UIViewController
-@property (weak, nonatomic) IBOutlet targetIndicatorView *targetIndicatorOutlet;
-
+@property (strong, nonatomic) targetIndicatorView *indicatorView;
 - (IBAction)startRandom:(id)sender;
 @end

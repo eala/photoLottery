@@ -19,13 +19,17 @@
     return self;
 }
 
-/*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    UIBezierPath *roundedRectPath = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:4.0f];
+    [[UIColor greenColor] setFill];
+    [[UIColor redColor] setStroke];
+    [roundedRectPath fill];
+    [roundedRectPath stroke];
 }
-*/
 
 @end
