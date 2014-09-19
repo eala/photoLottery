@@ -64,6 +64,7 @@ const int unitSide = 128;
     for (UIImage *image in self.selectedImages){
         UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
         //[imageview setContentMode:UIViewContentModeScaleAspectFit];
+        //[imageview setContentMode:UIViewContentModeScaleAspectFill];
         [imageview setContentMode:UIViewContentModeScaleToFill];
         imageview.frame = CGRectMake(0, offset, 128, 128);
         offset+=128;
@@ -73,6 +74,7 @@ const int unitSide = 128;
     
     [self.view addSubview:self.indicatorView];
 	self.indicatorView.frame = CGRectMake(0, 0, unitSide, unitSide);
+    self.indicatorView.alpha = 0.2f;
 }
 
 - (void)didReceiveMemoryWarning

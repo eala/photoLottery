@@ -25,7 +25,7 @@
 {
     // Drawing code
     CGContextRef context = UIGraphicsGetCurrentContext();
-    UIBezierPath *roundedRectPath = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:4.0f];
+    UIBezierPath *roundedRectPath = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:20.0f];
     [[UIColor greenColor] setFill];
     [[UIColor redColor] setStroke];
     [roundedRectPath fill];
