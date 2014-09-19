@@ -43,7 +43,7 @@
             </objects>
             <point key="canvasLocation" x="-326" y="-1433"/>
         </scene>
-        <!--Random Picker View Controller-->
+        <!--Random Picker View Controller - Game-->
         <scene sceneID="keE-yK-c18">
             <objects>
                 <viewController id="2OP-TT-HBf" customClass="RandomPickerViewController" sceneMemberID="viewController">
@@ -68,7 +68,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="AT3-8D-BiN"/>
+                    <navigationItem key="navigationItem" title="Game" id="AT3-8D-BiN"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Emw-qA-1l5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -88,19 +88,36 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7d-dl-NKF">
-                                <rect key="frame" x="182" y="353" width="37" height="30"/>
+                                <rect key="frame" x="345" y="155" width="79" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Done">
+                                <state key="normal" title="Start Game">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="2OP-TT-HBf" kind="push" id="EEa-5l-b0u"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dV-JR-RA2">
+                                <rect key="frame" x="321" y="117" width="126" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Select Candidates">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="showImagePickerForPhotoPicker:" destination="aOj-SQ-VYa" eventType="touchUpInside" id="311-Tb-CAz"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kGf-om-ljS">
+                                <rect key="frame" x="146" y="220" width="476" height="254"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Select Photos" id="XER-lV-azj"/>
+                    <connections>
+                        <outlet property="scrollView" destination="kGf-om-ljS" id="WbU-ij-OPf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogc-S7-kcq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

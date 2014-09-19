@@ -102,6 +102,7 @@
         [v removeFromSuperview];
     }
     
+    _scrollView.frame = CGRectMake(20, 20, 128, 128);
 	CGRect workingFrame = _scrollView.frame;
 	workingFrame.origin.x = 0;
     

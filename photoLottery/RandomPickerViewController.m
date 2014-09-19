@@ -15,12 +15,22 @@
 
 @implementation RandomPickerViewController
 
+#define TURN_ON_MUSIC 0
+
 -(targetIndicatorView *)indicatorView
 {
     if (!_indicatorView) {
         _indicatorView = [[targetIndicatorView alloc] init];
     }
     return _indicatorView;
+}
+
+-(AudioController *)audioController
+{
+    if (!_audioController) {
+        _audioController = [[AudioController alloc] init];
+    }
+    return _audioController;
 }
 
 // fixme later, check the height & width of iPad mini, and set unitSide as large as targetIndicatorView
@@ -39,8 +49,10 @@ const int unitSide = 128;
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.audioController = [[AudioController alloc] init];
+    
+    #if TURN_ON_MUSIC
     [self.audioController playBackgroundMusic];
+    #endif
     
     [self.view addSubview:self.indicatorView];
 	self.indicatorView.frame = CGRectMake(0, 0, unitSide, unitSide);
@@ -58,8 +70,9 @@ const int unitSide = 128;
 
 - (IBAction)startRandom:(id)sender 
 {
+    #if TURN_ON_MUSIC
     [self.audioController playEffectSound];
-    
+    #endif
     CALayer *targetIndicatorLayer = self.indicatorView.layer;
 	
 	// Create a keyframe animation to follow a path back to the center.
