@@ -19,6 +19,12 @@
 @implementation RandomPickerViewController
 
 #define TURN_ON_MUSIC 1
+#define IMAGE_SIDE_LENGTH 128
+#define MAX_IMAGES_COUNT 24
+
+#define TOTAL_SCREEN_SIDES 4
+#define PICS_IN_LONG_SIDE 8
+#define PICS_IN_SHORT_SIDE 6
 
 -(targetIndicatorView *)indicatorView
 {
@@ -28,6 +34,7 @@
     return _indicatorView;
 }
 
+/*
 -(AudioController *)audioController
 {
     if (!_audioController) {
@@ -35,9 +42,7 @@
     }
     return _audioController;
 }
-
-// fixme later, check the height & width of iPad mini, and set unitSide as large as targetIndicatorView
-const int unitSide = 128;
+ */
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,11 +53,14 @@ const int unitSide = 128;
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    // Hidden navigation bar in default
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]
                                           initWithTarget:self action:@selector(showHideNavbar:)];
     [self.view addGestureRecognizer:tapGesture];
@@ -60,24 +68,54 @@ const int unitSide = 128;
     _firstRound = YES;
     
     #if TURN_ON_MUSIC
+    self.audioController = [[AudioController alloc] init];
     [self.audioController playBackgroundMusic];
     #endif
     
-    // display images
-    int offset = 0;
-    for (UIImage *image in self.selectedImages){
-        UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
-        //[imageview setContentMode:UIViewContentModeScaleAspectFit];
-        //[imageview setContentMode:UIViewContentModeScaleAspectFill];
-        [imageview setContentMode:UIViewContentModeScaleToFill];
-        imageview.frame = CGRectMake(0, offset, 128, 128);
-        offset+=128;
-        
-        [self.view addSubview:imageview];
+    CGRect imageCoord[MAX_IMAGES_COUNT];
+    int i=0, offsetLongSide=0, offsetShortSide=0;
+    while (i<PICS_IN_LONG_SIDE-1) {
+        imageCoord[i++] = CGRectMake(offsetLongSide, 0, IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH);
+        offsetLongSide += IMAGE_SIDE_LENGTH;
+    }
+    while (i<PICS_IN_LONG_SIDE+PICS_IN_SHORT_SIDE-2){
+        imageCoord[i++] = CGRectMake(offsetLongSide, offsetShortSide, IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH);
+        offsetShortSide += IMAGE_SIDE_LENGTH;
+    }
+    while (i< 2*PICS_IN_LONG_SIDE+PICS_IN_SHORT_SIDE-3) {
+        imageCoord[i++] = CGRectMake(offsetLongSide, offsetShortSide, IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH);
+        offsetLongSide -= IMAGE_SIDE_LENGTH;
+    }
+    while (i< 2*PICS_IN_LONG_SIDE+2*PICS_IN_SHORT_SIDE-4) {
+        imageCoord[i++] = CGRectMake(offsetLongSide, offsetShortSide, IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH);
+        offsetShortSide -= IMAGE_SIDE_LENGTH;
+    }
+    
+    if( self.selectedImages.count > MAX_IMAGES_COUNT){
+        // first select head MAX_IMAGES_COUNT index
+    }else if (self.selectedImages.count == MAX_IMAGES_COUNT){
+        // no need to do anything
+    }else if (self.selectedImages.count < MAX_IMAGES_COUNT && self.selectedImages.count > 0){
+        int originalSize = self.selectedImages.count;
+        for (int i=0; i< MAX_IMAGES_COUNT - originalSize; ++i) {
+            int idx = arc4random() % self.selectedImages.count;
+            [self.selectedImages addObject: self.selectedImages[idx]];
+        }
+    }
+    
+    if (self.selectedImages.count > 0) {
+        for (int i=0; i<MAX_IMAGES_COUNT; ++i){
+            UIImageView *imageview = [[UIImageView alloc] initWithImage:self.selectedImages[i]];
+            //[imageview setContentMode:UIViewContentModeScaleAspectFit];
+            //[imageview setContentMode:UIViewContentModeScaleAspectFill];
+            [imageview setContentMode:UIViewContentModeScaleToFill];
+            imageview.frame = imageCoord[i];
+            [self.view addSubview:imageview];
+        }
     }
     
     [self.view addSubview:self.indicatorView];
-	self.indicatorView.frame = CGRectMake(0, 0, unitSide, unitSide);
+	self.indicatorView.frame = CGRectMake(0, 0, IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH);
     self.indicatorView.alpha = 0.2f;
 }
 
@@ -129,7 +167,7 @@ const int unitSide = 128;
 	UIBezierPath *bouncePath = [[UIBezierPath alloc] init];
 	
     // use Button click to adjust stopBouncing value
-    int offset = (int)(unitSide/2.0);
+    int offset = (int)(IMAGE_SIDE_LENGTH/2.0);
     CGPoint leftTopPt = CGPointMake(self.view.frame.origin.x + offset, self.view.frame.origin.y + offset);
     CGPoint rightTopPt = CGPointMake(self.view.frame.origin.x + self.view.frame.size.width - offset, self.view.frame.origin.y + offset);
     CGPoint rightButtomPt = CGPointMake(self.view.frame.origin.x + self.view.frame.size.width - offset, self.view.frame.origin.y + self.view.frame.size.height - offset);
@@ -157,19 +195,15 @@ const int unitSide = 128;
         [bouncePath addLineToPoint:leftTopPt];
     }
     
-    const int totalSides = 4;
-    const int picsInLongSide = 8;
-    const int picsInShortSide = 6;
-    
     UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
 
-    self.endSide = arc4random() % totalSides;
+    self.endSide = arc4random() % TOTAL_SCREEN_SIDES;
     int picsPerSide = 0;
     
     if (UIInterfaceOrientationPortrait == interfaceOrientation || UIInterfaceOrientationPortraitUpsideDown == interfaceOrientation) {
-        picsPerSide = ( 0 == (self.endSide % 2) )? picsInShortSide :picsInLongSide;
+        picsPerSide = ( 0 == (self.endSide % 2) )? PICS_IN_SHORT_SIDE : PICS_IN_LONG_SIDE;
     }else if(UIInterfaceOrientationLandscapeLeft == interfaceOrientation || UIInterfaceOrientationLandscapeRight == interfaceOrientation){
-        picsPerSide = ( 1 == (self.endSide % 2) )? picsInShortSide :picsInLongSide;
+        picsPerSide = ( 1 == (self.endSide % 2) )? PICS_IN_SHORT_SIDE : PICS_IN_LONG_SIDE;
     }
     
     int sideOffset = arc4random() % picsPerSide;
@@ -197,7 +231,7 @@ const int unitSide = 128;
             break;
     }
 
-    self.endPoint = CGPointMake(bouncePath.currentPoint.x + (sideOffset * xMultiplier * unitSide), bouncePath.currentPoint.y + (sideOffset * yMultiplier * unitSide));
+    self.endPoint = CGPointMake(bouncePath.currentPoint.x + (sideOffset * xMultiplier * IMAGE_SIDE_LENGTH), bouncePath.currentPoint.y + (sideOffset * yMultiplier * IMAGE_SIDE_LENGTH));
     [bouncePath addLineToPoint: self.endPoint];
 
 	bounceAnimation.path = [bouncePath CGPath];
