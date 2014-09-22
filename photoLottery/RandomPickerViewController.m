@@ -8,12 +8,14 @@
 
 #import "RandomPickerViewController.h"
 #import "AudioController.h"
+#import "awardView.h"
 
 @interface RandomPickerViewController ()
 @property (strong, nonatomic) AudioController *audioController;
 @property (nonatomic) CGPoint endPoint;
 @property (nonatomic) int endSide;
 @property (nonatomic) BOOL firstRound;
+//@property (nonatomic, strong) NSMutableArray* index2Images;
 @end
 
 @implementation RandomPickerViewController
@@ -35,12 +37,12 @@
 }
 
 /*
--(AudioController *)audioController
+-(NSMutableArray *)index2Images
 {
-    if (!_audioController) {
-        _audioController = [[AudioController alloc] init];
+    if (!_index2Images) {
+        _index2Images = [[NSMutableArray alloc] init];
     }
-    return _audioController;
+    return _index2Images;
 }
  */
 
@@ -90,6 +92,12 @@
         imageCoord[i++] = CGRectMake(offsetLongSide, offsetShortSide, IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH);
         offsetShortSide -= IMAGE_SIDE_LENGTH;
     }
+    
+    /*
+    for(int i=0; i<self.selectedImages.count; ++i){
+        [self.index2Images addObject: [NSNumber init]];
+    }
+     */
     
     if( self.selectedImages.count > MAX_IMAGES_COUNT){
         // first select head MAX_IMAGES_COUNT index
@@ -144,9 +152,37 @@
 
 -(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
     // enlarge the selected image or navigate to the new page
+    
+    /*
+    UIView *popView = [[UIView alloc] init];
+    popView.frame = self.view.frame;
+    popView.backgroundColor = [UIColor greenColor];
+    popView.opaque = NO;
+    [self.view addSubview:popView];
+    
+    UIImageView *imageview = [[UIImageView alloc] initWithImage:self.selectedImages[2]];
+    //[imageview setContentMode:UIViewContentModeScaleAspectFit];
+    //[imageview setContentMode:UIViewContentModeScaleAspectFill];
+    [imageview setContentMode:UIViewContentModeScaleToFill];
+    imageview.frame = CGRectMake(0, 20, 100, 100);
+    [popView addSubview:imageview];
+    
+    [self.view setNeedsDisplay];
+     */
+    
+    awardView *_awardView = [[awardView alloc]init];
+    _awardView.frame = self.view.frame;
+    [self.view addSubview: _awardView];
+    [self.view setNeedsDisplay];
 }
 
-- (IBAction)startRandom:(id)sender 
+-(void)dismissParentView
+{
+    
+//    [self removeFromSuperview];
+}
+
+- (IBAction)startRandom:(id)sender
 {
     #if TURN_ON_MUSIC
     [self.audioController playEffectSound];

@@ -54,6 +54,7 @@
 		362B0FE019CB3E9100627EA1 /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 362B0FDF19CB3E9100627EA1 /* AudioController.m */; };
 		362B0FE219CB41FB00627EA1 /* final-countdown.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 362B0FE119CB41FB00627EA1 /* final-countdown.m4a */; };
 		362B0FE519CB435500627EA1 /* randomize.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 362B0FE419CB435500627EA1 /* randomize.m4a */; };
+		3694C5F619D0594000185629 /* awardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3694C5F519D0594000185629 /* awardView.m */; };
 		36FCFD1A199F6069008C9E82 /* PhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FCFD19199F6069008C9E82 /* PhotoPickerViewController.m */; };
 		36FCFD3C199F6A16008C9E82 /* ELCAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FCFD1E199F6A16008C9E82 /* ELCAlbumPickerController.m */; };
 		36FCFD3D199F6A16008C9E82 /* ELCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FCFD20199F6A16008C9E82 /* ELCAsset.m */; };
@@ -139,6 +140,8 @@
 		362B0FDF19CB3E9100627EA1 /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioController.m; sourceTree = "<group>"; };
 		362B0FE119CB41FB00627EA1 /* final-countdown.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = "final-countdown.m4a"; sourceTree = "<group>"; };
 		362B0FE419CB435500627EA1 /* randomize.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = randomize.m4a; sourceTree = "<group>"; };
+		3694C5F419D0594000185629 /* awardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = awardView.h; sourceTree = "<group>"; };
+		3694C5F519D0594000185629 /* awardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = awardView.m; sourceTree = "<group>"; };
 		36FCFD18199F6069008C9E82 /* PhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPickerViewController.h; sourceTree = "<group>"; };
 		36FCFD19199F6069008C9E82 /* PhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPickerViewController.m; sourceTree = "<group>"; };
 		36FCFD1D199F6A16008C9E82 /* ELCAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAlbumPickerController.h; sourceTree = "<group>"; };
@@ -243,6 +246,8 @@
 				362B0FDC19CB0A4D00627EA1 /* targetIndicatorView.m */,
 				362B0FD619CB023300627EA1 /* RandomPickerViewController.h */,
 				362B0FD719CB023300627EA1 /* RandomPickerViewController.m */,
+				3694C5F419D0594000185629 /* awardView.h */,
+				3694C5F519D0594000185629 /* awardView.m */,
 				36FCFD18199F6069008C9E82 /* PhotoPickerViewController.h */,
 				36FCFD19199F6069008C9E82 /* PhotoPickerViewController.m */,
 				2800E55619599B4600D60109 /* ViewController.h */,
@@ -539,6 +544,7 @@
 				36FCFD1A199F6069008C9E82 /* PhotoPickerViewController.m in Sources */,
 				2800E54F19599B4600D60109 /* AppDelegate.m in Sources */,
 				2800E54B19599B4600D60109 /* main.m in Sources */,
+				3694C5F619D0594000185629 /* awardView.m in Sources */,
 				362B0FDD19CB0A4D00627EA1 /* targetIndicatorView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
