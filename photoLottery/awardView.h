@@ -10,4 +10,5 @@
 
 @interface awardView : UIView
 @property (nonatomic, strong) UIImage *showImage;
+@property (nonatomic, strong) UIViewController *controller;
 @end

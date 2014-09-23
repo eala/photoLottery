@@ -141,10 +141,26 @@
         }
     }
     
+    // 2. red indicator rectangle
     [self.view addSubview:self.indicatorView];
 	self.indicatorView.frame = CGRectMake(0, 0, IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH);
     self.indicatorView.backgroundColor = [UIColor clearColor];
     self.indicatorView.alpha = 1.0f;
+    
+    // 3. start button
+    UIButton *startButton = [[UIButton alloc] init];
+    
+    float buttonW = 384;	// 512-128
+    float buttonH = 384;
+    //startButton.frame = CGRectMake(self.view.frame.size.width/2.0 - buttonW/2.0, self.view.frame.size.height/2.0 -buttonH/2.0 , buttonW, buttonH);
+    startButton.frame = CGRectMake(512 - buttonW/2.0, 384 - buttonH/2.0, buttonW, buttonH);
+
+    [startButton setBackgroundImage:[UIImage imageNamed:@"start_circle_button"] forState:UIControlStateNormal];
+    [startButton addTarget:self
+                      action:@selector(startRandom:)
+            forControlEvents:UIControlEventTouchUpInside];
+
+    [self.view addSubview:startButton];
 }
 
 // hidden time & battery etc. status
@@ -179,29 +195,28 @@
 -(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
     // enlarge the selected image or navigate to the new page
     
+    awardView *awardview = [[awardView alloc]init];
+    awardview.frame = CGRectMake(IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH*(PICS_IN_LONG_SIDE-2), IMAGE_SIDE_LENGTH*(PICS_IN_SHORT_SIDE-2));
+    awardview.controller = self;
+    
     /*
-    UIView *popView = [[UIView alloc] init];
-    popView.frame = self.view.frame;
-    popView.backgroundColor = [UIColor greenColor];
-    popView.opaque = NO;
-    [self.view addSubview:popView];
-    
-    UIImageView *imageview = [[UIImageView alloc] initWithImage:self.selectedImages[2]];
-    //[imageview setContentMode:UIViewContentModeScaleAspectFit];
-    //[imageview setContentMode:UIViewContentModeScaleAspectFill];
-    [imageview setContentMode:UIViewContentModeScaleToFill];
-    imageview.frame = CGRectMake(0, 20, 100, 100);
-    [popView addSubview:imageview];
-    
-    [self.view setNeedsDisplay];
+    UIButton *nextRoundButton = [[UIButton alloc] init];
+    float offset = 16;
+    float buttonW = 256;
+    float buttonH = 128;
+    nextRoundButton.frame = CGRectMake(awardview.bounds.size.width - buttonW - offset, awardview.bounds.size.height, buttonW, buttonH);
+    [nextRoundButton setBackgroundImage:[UIImage imageNamed:@"start_button.png"] forState:UIControlStateNormal];
+    [nextRoundButton setTitle:@"GO" forState:UIControlStateNormal];
+    [nextRoundButton addTarget:self
+                        action:@selector(startRandom:)
+              forControlEvents:UIControlEventTouchUpInside];
+    [awardview addSubview:nextRoundButton];
      */
     
-    awardView *_awardView = [[awardView alloc]init];
-    _awardView.frame = CGRectMake(IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH*(PICS_IN_LONG_SIDE-2), IMAGE_SIDE_LENGTH*(PICS_IN_SHORT_SIDE-2));
     if (self.selectedImages.count > 0) {
-        [_awardView setShowImage:self.selectedImages[[self.selectedImagesIdx[self.index2Image] intValue]]];
+        [awardview setShowImage:self.selectedImages[[self.selectedImagesIdx[self.index2Image] intValue]]];
         
-        [self.view addSubview: _awardView];
+        [self.view addSubview: awardview];
         [self.view setNeedsDisplay];
     }
 }

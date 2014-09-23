@@ -18,7 +18,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        self.backgroundColor = [UIColor clearColor];
+        //self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
@@ -49,6 +50,7 @@
         } completion:nil];
     }];
     
+    
     UIButton *dismissButton = [[UIButton alloc] init];
     float offset = 16;
     float buttonW = 256;
@@ -60,8 +62,10 @@
     [dismissButton addTarget:self
                       action:@selector(dismiss:)
             forControlEvents:UIControlEventTouchUpInside];
-    [dismissButton setTitle:@"重新開始" forState:UIControlStateNormal];
+    [dismissButton setTitle:@"Restart" forState:UIControlStateNormal];
     [self addSubview:dismissButton];
+    
+
 }
 
 -(void)dismiss:(UIButton *)button
