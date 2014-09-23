@@ -46,10 +46,6 @@
 {
     if (!_selectedImagesIdx) {
         _selectedImagesIdx = [[NSMutableArray alloc]init];
-        
-        //for (int i=0; i< MAX_IMAGES_COUNT; ++i) {
-        //    [_selectedImagesIdx addObject:[NSNumber numberWithInt:i]];
-        //}
     }
     return _selectedImagesIdx;
 }
@@ -149,6 +145,12 @@
 	self.indicatorView.frame = CGRectMake(0, 0, IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH);
     self.indicatorView.backgroundColor = [UIColor clearColor];
     self.indicatorView.alpha = 1.0f;
+}
+
+// hidden time & battery etc. status
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
 }
 
 -(void) showHideNavbar:(id) sender
