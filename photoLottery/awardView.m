@@ -53,7 +53,7 @@
     float offset = 16;
     float buttonW = 256;
     float buttonH = 128;
-    dismissButton.frame = CGRectMake(offset, self.bounds.size.height -buttonH - offset, buttonW, buttonH);
+    dismissButton.frame = CGRectMake(offset, self.bounds.size.height -buttonH , buttonW, buttonH);
     [dismissButton setBackgroundImage:[UIImage imageNamed:@"start_button.png"] forState:UIControlStateNormal];
     [dismissButton setTitle:@"Start" forState:UIControlStateNormal];
     
