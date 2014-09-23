@@ -118,13 +118,17 @@
             //[imageview setContentMode:UIViewContentModeScaleAspectFill];
             [imageview setContentMode:UIViewContentModeScaleToFill];
             imageview.frame = imageCoord[i];
+            imageview.layer.masksToBounds = YES;
+            imageview.layer.cornerRadius = 10.f;
+            imageview.layer.borderWidth = 2.f;
             [self.view addSubview:imageview];
         }
     }
     
     [self.view addSubview:self.indicatorView];
 	self.indicatorView.frame = CGRectMake(0, 0, IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH);
-    self.indicatorView.alpha = 0.2f;
+    self.indicatorView.backgroundColor = [UIColor clearColor];
+    self.indicatorView.alpha = 1.0f;
 }
 
 -(void) showHideNavbar:(id) sender
@@ -171,8 +175,10 @@
      */
     
     awardView *_awardView = [[awardView alloc]init];
-    _awardView.frame = self.view.frame;
+    _awardView.frame = CGRectMake(IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH*(PICS_IN_LONG_SIDE-2), IMAGE_SIDE_LENGTH*(PICS_IN_SHORT_SIDE-2));
+    [_awardView setShowImage:self.selectedImages[2]];
     [self.view addSubview: _awardView];
+    
     [self.view setNeedsDisplay];
 }
 

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface awardView : UIView
-
+@property (nonatomic, strong) UIImage *showImage;
 @end

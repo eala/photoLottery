@@ -55,6 +55,8 @@
 		362B0FE219CB41FB00627EA1 /* final-countdown.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 362B0FE119CB41FB00627EA1 /* final-countdown.m4a */; };
 		362B0FE519CB435500627EA1 /* randomize.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 362B0FE419CB435500627EA1 /* randomize.m4a */; };
 		3694C5F619D0594000185629 /* awardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3694C5F519D0594000185629 /* awardView.m */; };
+		3694C5F819D0695B00185629 /* overlayHeartShape.png in Resources */ = {isa = PBXBuildFile; fileRef = 3694C5F719D0695B00185629 /* overlayHeartShape.png */; };
+		3694C5FA19D06CB800185629 /* start_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 3694C5F919D06CB800185629 /* start_button.png */; };
 		36FCFD1A199F6069008C9E82 /* PhotoPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FCFD19199F6069008C9E82 /* PhotoPickerViewController.m */; };
 		36FCFD3C199F6A16008C9E82 /* ELCAlbumPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FCFD1E199F6A16008C9E82 /* ELCAlbumPickerController.m */; };
 		36FCFD3D199F6A16008C9E82 /* ELCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 36FCFD20199F6A16008C9E82 /* ELCAsset.m */; };
@@ -142,6 +144,8 @@
 		362B0FE419CB435500627EA1 /* randomize.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = randomize.m4a; sourceTree = "<group>"; };
 		3694C5F419D0594000185629 /* awardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = awardView.h; sourceTree = "<group>"; };
 		3694C5F519D0594000185629 /* awardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = awardView.m; sourceTree = "<group>"; };
+		3694C5F719D0695B00185629 /* overlayHeartShape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overlayHeartShape.png; sourceTree = "<group>"; };
+		3694C5F919D06CB800185629 /* start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_button.png; sourceTree = "<group>"; };
 		36FCFD18199F6069008C9E82 /* PhotoPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoPickerViewController.h; sourceTree = "<group>"; };
 		36FCFD19199F6069008C9E82 /* PhotoPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoPickerViewController.m; sourceTree = "<group>"; };
 		36FCFD1D199F6A16008C9E82 /* ELCAlbumPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELCAlbumPickerController.h; sourceTree = "<group>"; };
@@ -328,6 +332,8 @@
 		362B0FE319CB421300627EA1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3694C5F919D06CB800185629 /* start_button.png */,
+				3694C5F719D0695B00185629 /* overlayHeartShape.png */,
 				362B0FE119CB41FB00627EA1 /* final-countdown.m4a */,
 				362B0FE419CB435500627EA1 /* randomize.m4a */,
 			);
@@ -480,6 +486,8 @@
 				2800E59019599B9000D60109 /* win_11.png in Resources */,
 				36FCFD47199F6A16008C9E82 /* Overlay@2x.png in Resources */,
 				2800E58E19599B9000D60109 /* win_9.png in Resources */,
+				3694C5FA19D06CB800185629 /* start_button.png in Resources */,
+				3694C5F819D0695B00185629 /* overlayHeartShape.png in Resources */,
 				2800E5A91959B49C00D60109 /* DSC00742.jpg in Resources */,
 				2800E58D19599B9000D60109 /* win_8.png in Resources */,
 				2800E55519599B4600D60109 /* Main_iPad.storyboard in Resources */,

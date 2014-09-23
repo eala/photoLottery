@@ -23,13 +23,12 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    // Drawing code
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    UIBezierPath *roundedRectPath = [UIBezierPath bezierPathWithRoundedRect:rect cornerRadius:20.0f];
-    [[UIColor greenColor] setFill];
-    [[UIColor redColor] setStroke];
-    [roundedRectPath fill];
-    [roundedRectPath stroke];
+    [self setBackgroundColor:[UIColor clearColor]];
+    [self.layer setBorderColor:[[UIColor redColor] CGColor]];
+    [self.layer setBorderWidth:10.0];
+    [self.layer setCornerRadius:10.0f];
+    [self.layer setMasksToBounds:YES];
+    [self.layer setBackgroundColor: (__bridge CGColorRef)([UIColor clearColor])];
 }
 
 @end
