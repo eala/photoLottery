@@ -66,7 +66,7 @@
     //imagePickerController.sourceType = sourceType;
     //imagePickerController.delegate = self;
     //imagePickerController.showsCameraControls = YES;
-    imagePickerController.maximumImagesCount = 30;
+    imagePickerController.maximumImagesCount = 24;
     imagePickerController.returnsOriginalImage = NO;
     imagePickerController.returnsImage = YES;
     imagePickerController.onOrder = YES;

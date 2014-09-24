@@ -95,7 +95,8 @@
 	// Sounds must be 30 sec or less
 	// And only one sound plays at a time!
 	//NSString *pewPewPath = [[NSBundle mainBundle] pathForResource:@"pew-pew-lei" ofType:@"caf"];
-	NSString *pewPewPath = [[NSBundle mainBundle] pathForResource:@"randomize" ofType:@"m4a"];
+	//NSString *pewPewPath = [[NSBundle mainBundle] pathForResource:@"randomize" ofType:@"m4a"];
+    NSString *pewPewPath = [[NSBundle mainBundle] pathForResource:@"drum_roll_loud" ofType:@"mp3"];
     NSURL *pewPewURL = [NSURL fileURLWithPath:pewPewPath];
 	AudioServicesCreateSystemSoundID((__bridge CFURLRef)pewPewURL, &_pewPewSound);
 }
