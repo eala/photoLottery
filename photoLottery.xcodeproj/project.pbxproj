@@ -49,6 +49,7 @@
 		2800E5A91959B49C00D60109 /* DSC00742.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2800E59F1959B49C00D60109 /* DSC00742.jpg */; };
 		2800E5AA1959B49C00D60109 /* DSC00743.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2800E5A01959B49C00D60109 /* DSC00743.jpg */; };
 		284045EE19D1DDBE003E0066 /* start_circle_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 284045ED19D1DDBE003E0066 /* start_circle_button.png */; };
+		284045F019D244E8003E0066 /* melody.png in Resources */ = {isa = PBXBuildFile; fileRef = 284045EF19D244E8003E0066 /* melody.png */; };
 		362B0FD819CB023300627EA1 /* RandomPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 362B0FD719CB023300627EA1 /* RandomPickerViewController.m */; };
 		362B0FDA19CB043000627EA1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 362B0FD919CB043000627EA1 /* QuartzCore.framework */; };
 		362B0FDD19CB0A4D00627EA1 /* targetIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 362B0FDC19CB0A4D00627EA1 /* targetIndicatorView.m */; };
@@ -135,6 +136,7 @@
 		2800E59F1959B49C00D60109 /* DSC00742.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DSC00742.jpg; sourceTree = "<group>"; };
 		2800E5A01959B49C00D60109 /* DSC00743.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DSC00743.jpg; sourceTree = "<group>"; };
 		284045ED19D1DDBE003E0066 /* start_circle_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_circle_button.png; sourceTree = "<group>"; };
+		284045EF19D244E8003E0066 /* melody.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = melody.png; sourceTree = "<group>"; };
 		362B0FD619CB023300627EA1 /* RandomPickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RandomPickerViewController.h; sourceTree = "<group>"; };
 		362B0FD719CB023300627EA1 /* RandomPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RandomPickerViewController.m; sourceTree = "<group>"; };
 		362B0FD919CB043000627EA1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -334,6 +336,7 @@
 		362B0FE319CB421300627EA1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				284045EF19D244E8003E0066 /* melody.png */,
 				284045ED19D1DDBE003E0066 /* start_circle_button.png */,
 				3694C5F919D06CB800185629 /* start_button.png */,
 				3694C5F719D0695B00185629 /* overlayHeartShape.png */,
@@ -486,6 +489,7 @@
 				2800E5A21959B49C00D60109 /* DSC00732.jpg in Resources */,
 				2800E59419599B9000D60109 /* win_15.png in Resources */,
 				2800E58F19599B9000D60109 /* win_10.png in Resources */,
+				284045F019D244E8003E0066 /* melody.png in Resources */,
 				2800E59019599B9000D60109 /* win_11.png in Resources */,
 				36FCFD47199F6A16008C9E82 /* Overlay@2x.png in Resources */,
 				2800E58E19599B9000D60109 /* win_9.png in Resources */,

@@ -53,8 +53,8 @@
     
     UIButton *dismissButton = [[UIButton alloc] init];
     float offset = 16;
-    float buttonW = 256;
-    float buttonH = 128;
+    float buttonW = 128;
+    float buttonH = 64;
     dismissButton.frame = CGRectMake(offset, self.bounds.size.height -buttonH , buttonW, buttonH);
     [dismissButton setBackgroundImage:[UIImage imageNamed:@"start_button.png"] forState:UIControlStateNormal];
     [dismissButton setTitle:@"Start" forState:UIControlStateNormal];
@@ -62,7 +62,7 @@
     [dismissButton addTarget:self
                       action:@selector(dismiss:)
             forControlEvents:UIControlEventTouchUpInside];
-    [dismissButton setTitle:@"Restart" forState:UIControlStateNormal];
+    [dismissButton setTitle:@"返回" forState:UIControlStateNormal];
     [self addSubview:dismissButton];
     
 

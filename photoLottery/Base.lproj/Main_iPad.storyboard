@@ -61,9 +61,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Emw-qA-1l5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1096" y="-160"/>
+            <point key="canvasLocation" x="1152" y="-300"/>
         </scene>
-        <!--Select Photos-->
+        <!--Love Camera-->
         <scene sceneID="UEl-8T-Fdw">
             <objects>
                 <viewController id="aOj-SQ-VYa" customClass="PhotoPickerViewController" sceneMemberID="viewController">
@@ -72,41 +72,65 @@
                         <viewControllerLayoutGuide type="bottom" id="JIl-IO-bgV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="e9x-gt-4fC">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I7d-dl-NKF">
-                                <rect key="frame" x="345" y="155" width="79" height="30"/>
-                                <state key="normal" title="Start Game">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I7d-dl-NKF">
+                                <rect key="frame" x="410" y="222" width="204" height="97"/>
+                                <state key="normal" title="開始遊戲" backgroundImage="start_button.png">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="開始遊戲">
+                                            <attributes>
+                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="23" name="STHeitiTC-Light"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
                                     <segue destination="2OP-TT-HBf" kind="push" identifier="SEGUE_TO_GAME_SCREEN" id="EEa-5l-b0u"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6dV-JR-RA2">
-                                <rect key="frame" x="321" y="117" width="126" height="30"/>
-                                <state key="normal" title="Select Candidates">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6dV-JR-RA2">
+                                <rect key="frame" x="410" y="117" width="204" height="97"/>
+                                <state key="normal" title="選取照片" backgroundImage="start_button.png">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="選取照片">
+                                            <attributes>
+                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="21" name="HelveticaNeue"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
                                 </state>
                                 <connections>
                                     <action selector="showImagePickerForPhotoPicker:" destination="aOj-SQ-VYa" eventType="touchUpInside" id="311-Tb-CAz"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="這一天～我們結婚了～也希望把幸福傳遞給妳們～" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYT-8h-SDt">
+                                <rect key="frame" x="279" y="70" width="467" height="59"/>
+                                <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="melody.png" translatesAutoresizingMaskIntoConstraints="NO" id="vEM-Wx-K9R">
+                                <rect key="frame" x="119" y="122" width="152" height="168"/>
+                            </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kGf-om-ljS">
-                                <rect key="frame" x="146" y="217" width="476" height="254"/>
+                                <rect key="frame" x="199" y="348" width="626" height="334"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.33330797983858695" blue="0.4404628312809743" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Select Photos" id="XER-lV-azj"/>
+                    <navigationItem key="navigationItem" title="Love Camera" id="XER-lV-azj"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <connections>
                         <outlet property="scrollView" destination="kGf-om-ljS" id="WbU-ij-OPf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogc-S7-kcq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="255" y="-152"/>
+            <point key="canvasLocation" x="172" y="-401"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="x7q-ov-SiQ">
@@ -124,9 +148,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IBa-Mm-Ajm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-716" y="-152"/>
+            <point key="canvasLocation" x="-746" y="-273"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="melody.png" width="249" height="320"/>
+        <image name="start_button.png" width="640" height="480"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
