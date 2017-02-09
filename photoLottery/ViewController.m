@@ -80,8 +80,6 @@
     stopButton.frame = CGRectMake(0, imageSize.size.height, buttonWidth, buttonWidth);
     [self.view addSubview:stopButton];
     
-    // re-start button
-    UIButton *startButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 }
 
 - (void)didReceiveMemoryWarning

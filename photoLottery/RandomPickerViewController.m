@@ -17,6 +17,7 @@
 @property (nonatomic) CGPoint endPoint;
 @property (nonatomic) int endSide;
 @property (nonatomic) BOOL firstRound;
+@property (nonatomic) int nImageSideLength;
 
 @property (nonatomic, strong) NSMutableArray* selectedImagesIdx;
 @property (nonatomic, strong) NSMutableArray* coordIndicator;
@@ -27,12 +28,17 @@
 @implementation RandomPickerViewController
 
 #define TURN_ON_MUSIC 1
-#define IMAGE_SIDE_LENGTH 128
+//#define self.nImageSideLength 128
 
 #define TOTAL_SCREEN_SIDES 4
 #define PICS_IN_LONG_SIDE 8
 #define PICS_IN_SHORT_SIDE 6
 #define MAX_IMAGES_COUNT (2*(PICS_IN_LONG_SIDE + PICS_IN_SHORT_SIDE) - 4)
+
+-(int)nImageSideLength{
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    return MIN(screenRect.size.width, screenRect.size.height)/PICS_IN_SHORT_SIDE;
+}
 
 -(targetIndicatorView *)indicatorView
 {
@@ -90,24 +96,24 @@
     //CGRect imageCoord[MAX_IMAGES_COUNT];
     int i=0, offsetLongSide=0, offsetShortSide=0;
     while (i<PICS_IN_LONG_SIDE-1) {
-        [self.coordIndicator addObject: [NSValue valueWithCGRect:CGRectMake(offsetLongSide, 0, IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH)]];
+        [self.coordIndicator addObject: [NSValue valueWithCGRect:CGRectMake(offsetLongSide, 0, self.nImageSideLength, self.nImageSideLength)]];
         i++;
-        offsetLongSide += IMAGE_SIDE_LENGTH;
+        offsetLongSide += self.nImageSideLength;
     }
     while (i<PICS_IN_LONG_SIDE+PICS_IN_SHORT_SIDE-2){
-        [self.coordIndicator addObject: [NSValue valueWithCGRect:CGRectMake(offsetLongSide, offsetShortSide, IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH)]];
+        [self.coordIndicator addObject: [NSValue valueWithCGRect:CGRectMake(offsetLongSide, offsetShortSide, self.nImageSideLength, self.nImageSideLength)]];
         i++;
-        offsetShortSide += IMAGE_SIDE_LENGTH;
+        offsetShortSide += self.nImageSideLength;
     }
     while (i< 2*PICS_IN_LONG_SIDE+PICS_IN_SHORT_SIDE-3) {
-        [self.coordIndicator addObject: [NSValue valueWithCGRect:CGRectMake(offsetLongSide, offsetShortSide, IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH)]];
+        [self.coordIndicator addObject: [NSValue valueWithCGRect:CGRectMake(offsetLongSide, offsetShortSide, self.nImageSideLength, self.nImageSideLength)]];
         i++;
-        offsetLongSide -= IMAGE_SIDE_LENGTH;
+        offsetLongSide -= self.nImageSideLength;
     }
     while (i< 2*PICS_IN_LONG_SIDE+2*PICS_IN_SHORT_SIDE-4) {
-        [self.coordIndicator addObject: [NSValue valueWithCGRect:CGRectMake(offsetLongSide, offsetShortSide, IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH)]];
+        [self.coordIndicator addObject: [NSValue valueWithCGRect:CGRectMake(offsetLongSide, offsetShortSide, self.nImageSideLength, self.nImageSideLength)]];
         i++;
-        offsetShortSide -= IMAGE_SIDE_LENGTH;
+        offsetShortSide -= self.nImageSideLength;
     }
     for (int i=0; i< self.selectedImages.count; ++i) {
         [self.selectedImagesIdx addObject:[NSNumber numberWithInt:i]];
@@ -145,7 +151,7 @@
     
     // 2. red indicator rectangle
     [self.view addSubview:self.indicatorView];
-	self.indicatorView.frame = CGRectMake(0, 0, IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH);
+	self.indicatorView.frame = CGRectMake(0, 0, self.nImageSideLength, self.nImageSideLength);
     self.indicatorView.backgroundColor = [UIColor clearColor];
     self.indicatorView.alpha = 1.0f;
     
@@ -169,6 +175,15 @@
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscape;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return NO;
 }
 
 -(void) showHideNavbar:(id) sender
@@ -198,7 +213,7 @@
     // enlarge the selected image or navigate to the new page
     
     awardView *awardview = [[awardView alloc]init];
-    awardview.frame = CGRectMake(IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH, IMAGE_SIDE_LENGTH*(PICS_IN_LONG_SIDE-2), IMAGE_SIDE_LENGTH*(PICS_IN_SHORT_SIDE-2));
+    awardview.frame = CGRectMake(self.nImageSideLength, self.nImageSideLength, self.nImageSideLength*(PICS_IN_LONG_SIDE-2), self.nImageSideLength*(PICS_IN_SHORT_SIDE-2));
     awardview.controller = self;
     
     /*
@@ -250,7 +265,7 @@
 	UIBezierPath *bouncePath = [[UIBezierPath alloc] init];
 	
     // use Button click to adjust stopBouncing value
-    int offset = (int)(IMAGE_SIDE_LENGTH/2.0);
+    int offset = (int)(self.nImageSideLength/2.0);
     CGPoint leftTopPt = CGPointMake(self.view.frame.origin.x + offset, self.view.frame.origin.y + offset);
     CGPoint rightTopPt = CGPointMake(self.view.frame.origin.x + self.view.frame.size.width - offset, self.view.frame.origin.y + offset);
     CGPoint rightButtomPt = CGPointMake(self.view.frame.origin.x + self.view.frame.size.width - offset, self.view.frame.origin.y + self.view.frame.size.height - offset);
@@ -298,19 +313,19 @@
 
 
     if (self.index2Image < TOP_ROW_COUNT) {
-        self.endPoint = CGPointMake(bouncePath.currentPoint.x + self.index2Image * IMAGE_SIDE_LENGTH, bouncePath.currentPoint.y);
+        self.endPoint = CGPointMake(bouncePath.currentPoint.x + self.index2Image * self.nImageSideLength, bouncePath.currentPoint.y);
     }else if(self.index2Image < RIGHT_AND_BOTTOM_COUNT){
         [bouncePath addLineToPoint:rightTopPt];
-        self.endPoint = CGPointMake(bouncePath.currentPoint.x , bouncePath.currentPoint.y + (self.index2Image-TOP_ROW_COUNT+1) * IMAGE_SIDE_LENGTH);
+        self.endPoint = CGPointMake(bouncePath.currentPoint.x , bouncePath.currentPoint.y + (self.index2Image-TOP_ROW_COUNT+1) * self.nImageSideLength);
     }else if (self.index2Image < LEFT_AND_BOTTOM_COUNT){
         [bouncePath addLineToPoint:rightTopPt];
         [bouncePath addLineToPoint:rightButtomPt];
-        self.endPoint = CGPointMake(bouncePath.currentPoint.x - (self.index2Image-RIGHT_AND_BOTTOM_COUNT+1) * IMAGE_SIDE_LENGTH, bouncePath.currentPoint.y);
+        self.endPoint = CGPointMake(bouncePath.currentPoint.x - (self.index2Image-RIGHT_AND_BOTTOM_COUNT+1) * self.nImageSideLength, bouncePath.currentPoint.y);
     }else{
         [bouncePath addLineToPoint:rightTopPt];
         [bouncePath addLineToPoint:rightButtomPt];
         [bouncePath addLineToPoint:leftButtomPt];
-        self.endPoint = CGPointMake(bouncePath.currentPoint.x, bouncePath.currentPoint.y - (self.index2Image-LEFT_AND_BOTTOM_COUNT+1) * IMAGE_SIDE_LENGTH);
+        self.endPoint = CGPointMake(bouncePath.currentPoint.x, bouncePath.currentPoint.y - (self.index2Image-LEFT_AND_BOTTOM_COUNT+1) * self.nImageSideLength);
     }
     [bouncePath addLineToPoint:self.endPoint];
     
@@ -339,7 +354,7 @@
             break;
     }
 
-    self.endPoint = CGPointMake(bouncePath.currentPoint.x + (sideOffset * xMultiplier * IMAGE_SIDE_LENGTH), bouncePath.currentPoint.y + (sideOffset * yMultiplier * IMAGE_SIDE_LENGTH));
+    self.endPoint = CGPointMake(bouncePath.currentPoint.x + (sideOffset * xMultiplier * self.nImageSideLength), bouncePath.currentPoint.y + (sideOffset * yMultiplier * self.nImageSideLength));
     [bouncePath addLineToPoint: self.endPoint];
     
     // calculate index to pic

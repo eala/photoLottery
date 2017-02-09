@@ -1,116 +1,111 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rQ2-Hb-3pi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="SKb-sp-NAU">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--View Controller - Item-->
-        <scene sceneID="ufC-wZ-h7g">
+        <!--Love Camera-->
+        <scene sceneID="eap-91-Asr">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="3PV-JO-N2o" customClass="PhotoPickerViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                        <viewControllerLayoutGuide type="top" id="hT0-ns-q0e"/>
+                        <viewControllerLayoutGuide type="bottom" id="lVl-6G-Usg"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                    <view key="view" contentMode="scaleToFill" id="bKd-1E-Cp1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YY1-Tx-S0n">
+                                <rect key="frame" x="58" y="123" width="204" height="97"/>
+                                <state key="normal" title="開始遊戲" backgroundImage="start_button.png">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="開始遊戲">
+                                            <attributes>
+                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="23" name="STHeitiTC-Light"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <segue destination="4lO-q2-Ca1" kind="push" id="RyE-9G-wPs"/>
+                                </connections>
+                            </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i7O-fH-YcH">
+                                <rect key="frame" x="58" y="228" width="204" height="232"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="whV-ac-fUy">
+                                <rect key="frame" x="58" y="64" width="204" height="97"/>
+                                <state key="normal" title="選取照片" backgroundImage="start_button.png">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="選取照片">
+                                            <attributes>
+                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="21" name="HelveticaNeue"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="showImagePickerForPhotoPicker:" destination="3PV-JO-N2o" eventType="touchUpInside" id="XHF-Wj-DZy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="B99-qH-GXa"/>
-                    <navigationItem key="navigationItem" id="nZq-BS-WFK"/>
+                    <navigationItem key="navigationItem" title="Love Camera" id="pKa-d0-zE2"/>
+                    <connections>
+                        <outlet property="scrollView" destination="i7O-fH-YcH" id="Qmg-eB-z4P"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KFz-AH-Zs2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="888" y="283"/>
+            <point key="canvasLocation" x="1540" y="-208"/>
         </scene>
-        <!--Navigation Controller - Item-->
-        <scene sceneID="6dS-Ik-ngQ">
+        <!--Game-->
+        <scene sceneID="EAM-nd-TDE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YAc-m8-Pax" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="lzV-gr-eFl"/>
+                <viewController id="4lO-q2-Ca1" customClass="RandomPickerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wVC-sg-EP0"/>
+                        <viewControllerLayoutGuide type="bottom" id="b9u-8n-KaL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I6s-eM-8Ia">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Game" id="57p-65-ID0"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XDp-CS-L3c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1980" y="-216"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5O5-DY-dZF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SKb-sp-NAU" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ktn-eb-24V">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YNv-6R-N80">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="R0b-cM-Dyd" kind="relationship" relationship="rootViewController" id="iOn-ZJ-OTi"/>
+                        <segue destination="3PV-JO-N2o" kind="relationship" relationship="rootViewController" id="2Yc-vK-1qK"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Of5-VJ-Lz0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jwq-S4-FLC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="888" y="-386"/>
-        </scene>
-        <!--Photo Picker View Controller-->
-        <scene sceneID="HQN-xi-MFh">
-            <objects>
-                <viewController id="R0b-cM-Dyd" customClass="PhotoPickerViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ZYD-R4-30w"/>
-                        <viewControllerLayoutGuide type="bottom" id="Rc1-w2-Hh5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="gns-ym-8HO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n4R-5m-LdU">
-                                <rect key="frame" x="20" y="334" width="124" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="From Camera Roll">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showImagePickerForPhotoPicker:" destination="R0b-cM-Dyd" eventType="touchUpInside" id="v11-L0-g5Y"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7X-uY-qYR">
-                                <rect key="frame" x="180" y="334" width="120" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Take New Photos">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showImagePickerForCamera:" destination="R0b-cM-Dyd" eventType="touchUpInside" id="Pu2-Du-kum"/>
-                                </connections>
-                            </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8T7-xb-pcA">
-                                <rect key="frame" x="58" y="83" width="204" height="235"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="2Fr-6H-ddN"/>
-                    <connections>
-                        <outlet property="scrollView" destination="8T7-xb-pcA" id="BIS-Dz-kPX"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iZN-Xx-xVY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1326" y="-394"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="fdc-SY-O0u">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="rQ2-Hb-3pi" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="cbA-0p-wv4">
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="YAc-m8-Pax" kind="relationship" relationship="viewControllers" id="UcI-Yg-WiY"/>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="YpC-AZ-vmy"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zyz-FA-gkw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="362" y="-26"/>
+            <point key="canvasLocation" x="1008" y="-208"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="start_button.png" width="640" height="480"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
