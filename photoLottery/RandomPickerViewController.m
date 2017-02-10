@@ -17,7 +17,8 @@
 @property (nonatomic) CGPoint endPoint;
 @property (nonatomic) int endSide;
 @property (nonatomic) BOOL firstRound;
-@property (nonatomic) int nImageSideLength;
+@property (nonatomic) float nImageSideLength;
+@property (nonatomic) int nLongSidePicCount;
 
 @property (nonatomic, strong) NSMutableArray* selectedImagesIdx;
 @property (nonatomic, strong) NSMutableArray* coordIndicator;
@@ -28,16 +29,19 @@
 @implementation RandomPickerViewController
 
 #define TURN_ON_MUSIC 1
-//#define self.nImageSideLength 128
 
-#define TOTAL_SCREEN_SIDES 4
-#define PICS_IN_LONG_SIDE 8
-#define PICS_IN_SHORT_SIDE 6
-#define MAX_IMAGES_COUNT (2*(PICS_IN_LONG_SIDE + PICS_IN_SHORT_SIDE) - 4)
+#define TOTAL_SCREEN_SIDES 4.0
+#define PICS_IN_SHORT_SIDE 4
+#define MAX_IMAGES_COUNT (2*(self.nLongSidePicCount + PICS_IN_SHORT_SIDE) - 4)
 
--(int)nImageSideLength{
+-(float)nImageSideLength{
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     return MIN(screenRect.size.width, screenRect.size.height)/PICS_IN_SHORT_SIDE;
+}
+
+-(int)nLongSidePicCount{
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    return screenRect.size.width/self.nImageSideLength;
 }
 
 -(targetIndicatorView *)indicatorView
@@ -62,6 +66,14 @@
         _coordIndicator = [[NSMutableArray alloc]init];
     }
     return _coordIndicator;
+}
+
+- (NSMutableArray *)selectedImages
+{
+    if (!_selectedImages){
+        _selectedImages = [[NSMutableArray alloc] init];
+    }
+    return _selectedImages;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -93,24 +105,24 @@
     [self.audioController playBackgroundMusic];
     #endif
     
-    //CGRect imageCoord[MAX_IMAGES_COUNT];
     int i=0, offsetLongSide=0, offsetShortSide=0;
-    while (i<PICS_IN_LONG_SIDE-1) {
+    
+    while (i< self.nLongSidePicCount-1) {
         [self.coordIndicator addObject: [NSValue valueWithCGRect:CGRectMake(offsetLongSide, 0, self.nImageSideLength, self.nImageSideLength)]];
         i++;
         offsetLongSide += self.nImageSideLength;
     }
-    while (i<PICS_IN_LONG_SIDE+PICS_IN_SHORT_SIDE-2){
+    while (i<self.nLongSidePicCount+PICS_IN_SHORT_SIDE-2){
         [self.coordIndicator addObject: [NSValue valueWithCGRect:CGRectMake(offsetLongSide, offsetShortSide, self.nImageSideLength, self.nImageSideLength)]];
         i++;
         offsetShortSide += self.nImageSideLength;
     }
-    while (i< 2*PICS_IN_LONG_SIDE+PICS_IN_SHORT_SIDE-3) {
+    while (i< 2*self.nLongSidePicCount+PICS_IN_SHORT_SIDE-3) {
         [self.coordIndicator addObject: [NSValue valueWithCGRect:CGRectMake(offsetLongSide, offsetShortSide, self.nImageSideLength, self.nImageSideLength)]];
         i++;
         offsetLongSide -= self.nImageSideLength;
     }
-    while (i< 2*PICS_IN_LONG_SIDE+2*PICS_IN_SHORT_SIDE-4) {
+    while (i< 2*self.nLongSidePicCount+2*PICS_IN_SHORT_SIDE-4) {
         [self.coordIndicator addObject: [NSValue valueWithCGRect:CGRectMake(offsetLongSide, offsetShortSide, self.nImageSideLength, self.nImageSideLength)]];
         i++;
         offsetShortSide -= self.nImageSideLength;
@@ -158,10 +170,10 @@
     // 3. start button
     UIButton *startButton = [[UIButton alloc] init];
     
-    float buttonW = 384;	// 512-128
-    float buttonH = 384;
-    //startButton.frame = CGRectMake(self.view.frame.size.width/2.0 - buttonW/2.0, self.view.frame.size.height/2.0 -buttonH/2.0 , buttonW, buttonH);
-    startButton.frame = CGRectMake(512 - buttonW/2.0, 384 - buttonH/2.0, buttonW, buttonH);
+    CGRect mainWin = [[UIScreen mainScreen] bounds];
+    float buttonW = mainWin.size.height - self.nImageSideLength * 2;
+    float buttonH = buttonW;
+    startButton.frame = CGRectMake( (mainWin.size.width - buttonW)/2.0, self.nImageSideLength, buttonW, buttonH);
 
     [startButton setBackgroundImage:[UIImage imageNamed:@"start_circle_button"] forState:UIControlStateNormal];
     [startButton addTarget:self
@@ -213,7 +225,7 @@
     // enlarge the selected image or navigate to the new page
     
     awardView *awardview = [[awardView alloc]init];
-    awardview.frame = CGRectMake(self.nImageSideLength, self.nImageSideLength, self.nImageSideLength*(PICS_IN_LONG_SIDE-2), self.nImageSideLength*(PICS_IN_SHORT_SIDE-2));
+    awardview.frame = CGRectMake(self.nImageSideLength, self.nImageSideLength, self.nImageSideLength*(self.nLongSidePicCount-2), self.nImageSideLength*(PICS_IN_SHORT_SIDE-2));
     awardview.controller = self;
     
     /*

@@ -104,9 +104,11 @@
         [v removeFromSuperview];
     }
     
-    _scrollView.frame = CGRectMake(20, 20, 128, 128);
 	CGRect workingFrame = _scrollView.frame;
 	workingFrame.origin.x = 0;
+    workingFrame.origin.y = 0;
+    const int NUM_IMGS_BE_SEEN = 4;
+    workingFrame.size.width = _scrollView.frame.size.width/NUM_IMGS_BE_SEEN;
     
     NSMutableArray *images = [NSMutableArray arrayWithCapacity:[info count]];
 	for (NSDictionary *dict in info) {
@@ -118,7 +120,8 @@
                 [images addObject:image];
                 
                 UIImageView *imageview = [[UIImageView alloc] initWithImage:image];
-                [imageview setContentMode:UIViewContentModeScaleAspectFit];
+                //[imageview setContentMode:UIViewContentModeScaleAspectFit];
+                [imageview setContentMode:UIViewContentModeScaleToFill];
                 imageview.frame = workingFrame;
                 
                 [_scrollView addSubview:imageview];
@@ -151,7 +154,7 @@
     
     self.selectedImages = images;
 	
-	[_scrollView setPagingEnabled:YES];
+	//[_scrollView setPagingEnabled:YES];
 	[_scrollView setContentSize:CGSizeMake(workingFrame.origin.x, workingFrame.size.height)];
 }
 
