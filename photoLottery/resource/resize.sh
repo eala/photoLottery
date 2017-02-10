@@ -22,6 +22,9 @@ sips -z 87 87 AppIcon87x87.png
 cp AppIcon.png AppIcon120x120.png
 sips -z 120 120 AppIcon120x120.png
 
+cp AppIcon.png AppIcon152x152.png
+sips -z 152 152 AppIcon152x152.png
+
 cp AppIcon.png AppIcon180x180.png
 sips -z 180 180 AppIcon180x180.png
 
